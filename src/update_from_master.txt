@@ -1,0 +1,26 @@
+After cloning the project for the first time make sure to run the command:
+
+npm install
+
+this will install the angular core services that are ignored when uploading
+to github.
+
+
+To pull from master branch to get your code updated, run the command:
+
+git pull origin master
+
+While in your branch. To switch toy your branch:
+
+git checkout "branch name"
+example: git checkout william
+
+This command will not replace your code you have been
+working on. However, make sure you update your personal branch with your work
+if you need to get an updated version of master:
+
+git add .
+git commit -m "your comment"
+git push
+
+!!!MAKE SURE TO NEVER PUSH TO MASTER BRANCH!!!
