@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from '../../models/Customer';
+import { CustomerService } from '../../services/customer.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customer-sign-up',
@@ -7,6 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerSignUpComponent implements OnInit {
 
+  onSubmit(){
+
+  }
   constructor() { }
 
   ngOnInit() {
