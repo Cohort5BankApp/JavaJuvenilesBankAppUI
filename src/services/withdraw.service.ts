@@ -1,9 +1,37 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+//need to import model
+import { Withdrawal } from '../models/Withdraw';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class WithdrawService {
+export class WithdrawalService {
 
-  constructor() { }
+  private withdrawalUrl: string;
+ 
+  constructor(private http: HttpClient) {
+    this.withdrawalUrl = 'http://localhost:8080/withdrawal/';
+  }
+ 
+//   public findAll(): Observable<Withdrawal[]> {
+//     return this.http.get<Withdrawal[]>(this.withdrawalUrl);
+//   }
+ 
+  public save(withdrawal: Withdrawal): Observable<Withdrawal> {
+    return this.http.post<Withdrawal>(this.withdrawalUrl, withdrawal);
+  }
+
+  public delete(id: number): Observable<any>{
+    return this.http.delete<Withdrawal>(this.withdrawalUrl + id);
+  }
+
+  public find(id: number){
+    return this.http.get(this.withdrawalUrl + id);
+  }
+
+  public update(id: number, value: any) {
+    return this.http.put(this.withdrawalUrl + id, value);
+  }
 }
