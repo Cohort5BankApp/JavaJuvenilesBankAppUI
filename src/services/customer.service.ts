@@ -25,6 +25,7 @@ export class CustomerService {
     return this.httpClient.get(this.API + id)
   }
   //update /customers/{id}
+  // Update needs an object 
   update(id:number){
     return this.httpClient.put(this.API + id, this.customer.id)
   }

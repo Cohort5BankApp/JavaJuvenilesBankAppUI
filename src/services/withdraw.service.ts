@@ -18,7 +18,7 @@ export class WithdrawalService {
 //   public findAll(): Observable<Withdrawal[]> {
 //     return this.http.get<Withdrawal[]>(this.withdrawalUrl);
 //   }
- 
+ //error with the Endpoint to save a withdraw, Should be /accounts/{accountId}/withdrawals
   public save(withdrawal: Withdrawal): Observable<Withdrawal> {
     return this.http.post<Withdrawal>(this.withdrawalUrl, withdrawal);
   }
