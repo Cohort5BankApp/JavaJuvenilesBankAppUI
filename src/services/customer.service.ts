@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Customer } from '../models/Customer'
-import { HttpClient } from '@angular/common/http'
+import { Customer } from '../models/Customer';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -33,7 +33,7 @@ export class CustomerService {
     return this.httpClient.get(this.API + id + '/bills')
   }
   //getAccountByCustomer /customers/{id}/accounts
-  getAccount(id:number){
+  getAccountByCustomer(id:number){
     return this.httpClient.get(this.API + id + '/accounts')
   }
 }
