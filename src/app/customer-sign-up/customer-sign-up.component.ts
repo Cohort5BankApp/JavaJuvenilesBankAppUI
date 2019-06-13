@@ -14,8 +14,7 @@ customer: Customer;
 sub: Subscription;
 
 
- 
-  constructor(private route: ActivatedRoute, private router: Router, private customerService: CustomerService ) { 
+ constructor(private route: ActivatedRoute, private router: Router, private customerService: CustomerService ) { 
 
   }
 
