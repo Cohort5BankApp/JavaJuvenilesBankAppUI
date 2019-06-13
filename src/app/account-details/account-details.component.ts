@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-account-details',
   templateUrl: './account-details.component.html',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountDetailsComponent implements OnInit {
 
+
+
   constructor() { }
 
   ngOnInit() {
+  
   }
+
+  //sign out button
 
 }
