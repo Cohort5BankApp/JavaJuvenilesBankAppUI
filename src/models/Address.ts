@@ -1,5 +1,5 @@
 
-export class address{
+export class Address{
 
     address_id: number;
     street_number: string;
