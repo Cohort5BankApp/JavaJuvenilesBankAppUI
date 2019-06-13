@@ -8,16 +8,17 @@ import { Account } from 'src/models/Account'
   styleUrls: ['./account-details.component.css']
 })
 export class AccountDetailsComponent implements OnInit {
-  accounts: Array<Account>
+account: Account;
+account_id;
 
   constructor(private accountService: AccountService) { }
 
   ngOnInit() {
-    this.accountService.getAll().subscribe(data => {
-      this.accounts = data;
-    })
+   this.accountService.get(this.account_id).subscribe(data => {
+     this.account = data;
+   })
   }
 
-  
+  //sign out button, deposits and withdrawals on init
 
 }
