@@ -11,7 +11,6 @@ import { Customer } from 'src/models/Customer';
 })
 export class CustomerProfileComponent implements OnInit {
 
-<<<<<<< HEAD
   accounts: Account[];
   customer:Customer;
 
