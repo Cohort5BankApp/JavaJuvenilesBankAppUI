@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "styles/bootstrap-3.3.7-dist/css/bootstap.min.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
