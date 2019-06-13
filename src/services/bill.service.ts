@@ -22,6 +22,7 @@ export class BillService {
     return this.http.get(this.billUrl + id);
   }
 
+  // Cant create without an id
   public create(bill: Bill): Observable<Bill>{
     return this.http.post<Bill>(this.billUrl, bill);
   }
