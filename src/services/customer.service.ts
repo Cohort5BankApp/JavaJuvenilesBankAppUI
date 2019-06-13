@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../models/Customer'
 import { HttpClient } from '@angular/common/http'
-import { create } from 'domain';
-import { stringify } from '@angular/core/src/render3/util';
 import { Observable } from 'rxjs';
 
 @Injectable({

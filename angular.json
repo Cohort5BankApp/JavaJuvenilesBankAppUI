@@ -24,7 +24,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "styles/bootstrap-3.3.7-dist/css/bootstap.min.css"
+              //"styles/bootstrap-3.3.7-dist/css/bootstap.min.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
