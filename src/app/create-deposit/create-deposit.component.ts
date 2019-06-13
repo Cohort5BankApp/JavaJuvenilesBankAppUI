@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DepositService } from 'src/services/deposit.service';
+import { Deposit } from 'src/models/Deposit';
 
 @Component({
   selector: 'app-create-deposit',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateDepositComponent implements OnInit {
 
-  constructor() { }
+  deposit: any;
+  id: number;
+
+  constructor(private depositService: DepositService) { }
+
+  getOne() {
+    return this.depositService.getOne(this.deposit).subscribe(data => {
+      this.deposit
+    });
+  }
+
+  save() {
+    return this.depositService.save(this.deposit).subscribe(data => {
+      this.deposit
+    });
+  }
+
+  gotoUserList() {
+
+  }
 
   ngOnInit() {
+    
   }
 
 }
