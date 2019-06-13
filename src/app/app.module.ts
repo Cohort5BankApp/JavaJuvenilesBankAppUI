@@ -15,6 +15,7 @@ import { DepositService } from 'src/services/deposit.service';
 import { WithdrawalService } from 'src/services/withdraw.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { TestComponent } from './test/test.component';
 
 
 
@@ -28,20 +29,21 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     CustomerSignUpComponent,
     CreateBillComponent,
     CustomerProfileComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    TestComponent
 
   ],
   imports: [
     BrowserModule,
-    HttpClientModule, 
+    HttpClientModule,
     AppRoutingModule
 
   ],
   providers: [
-    AccountService, 
-    BillService, 
-    CustomerService, 
-    DepositService, 
+    AccountService,
+    BillService,
+    CustomerService,
+    DepositService,
     WithdrawalService],
   bootstrap: [AppComponent]
 })
