@@ -19,9 +19,23 @@ export class CustomerService {
     return this.httpClient.post(this.API, customer);
   }
   //getAll /customers
-  getAll(): Observable
+  getAll(): Observable<any>{
+    return this.httpClient.get(this.API)
+  }
   //getCustomerById /customers/{id}
+  getById(id:number):Observable<any>{
+    return this.httpClient.get(this.API + id)
+  }
   //update /customers/{id}
-  //getBillsByCustomer /customers{id}/bills
+  update(id:number){
+    return this.httpClient.put(this.API + id, this.customer.id)
+  }
+  //getBillsByCustomer /customers/{id}/bills
+  getBills(id:number){
+    return this.httpClient.get(this.API + id + '/bills')
+  }
   //getAccountByCustomer /customers/{id}/accounts
+  getAccount(id:number){
+    return this.httpClient.get(this.API + id + '/accounts')
+  }
 }
