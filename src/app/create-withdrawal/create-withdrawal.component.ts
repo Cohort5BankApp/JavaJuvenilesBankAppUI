@@ -15,7 +15,7 @@ export class CreateWithdrawalComponent implements OnInit {
 
 
 withdrawal: Withdrawal = {id: 0, type: '', transaction_date: '', status: '', account_id: 0, medium: '', amount: 0, description: ''}
-sub: Subscription;
+sub: Subscription; 
   
  
 
