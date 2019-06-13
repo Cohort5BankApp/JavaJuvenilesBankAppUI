@@ -15,14 +15,11 @@ export class DepositService {
   constructor(private http: HttpClient) {
     this.depositUrl ='http://localhost:8080';
    }
-   public findAll():Observable<Deposit[]>{
-     return this.http.get<Deposit[]>(this.depositUrl+"/accounts" +this.accountId + "/deposits");
-   }
    public getOne(id: number){
      return this.http.get(this.depositUrl +"/deposits" + id);
    }
-   public save(deposit: Deposit){
-     return this.http.post<Deposit>(this.depositUrl + "/accounts" + this.accountId +"deposits",deposit )
+   public save(id:number,deposit: Deposit){
+     return this.http.post<Deposit>(this.depositUrl + "/accounts" + id +"deposits",deposit )
    }
    public update(id: number, deposit: Deposit){
      return this.http.put(this.depositUrl+"/deposits"+id,deposit);
