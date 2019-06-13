@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Customer } from 'src/models/Customer';
 
-
 @Component({
   selector: 'app-customer-profile',
   templateUrl: './customer-profile.component.html',
@@ -12,6 +11,7 @@ import { Customer } from 'src/models/Customer';
 })
 export class CustomerProfileComponent implements OnInit {
 
+<<<<<<< HEAD
   accounts: Account[];
   customer:Customer;
 
@@ -32,5 +32,7 @@ export class CustomerProfileComponent implements OnInit {
   displayCustomer(){
     this.customerService.getById
   }
+
+
 
 }
