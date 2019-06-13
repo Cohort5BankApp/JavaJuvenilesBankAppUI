@@ -1,3 +1,31 @@
-<p>
-  create-deposit works!
-</p>
+<form>
+  <div class="form-group">
+    <label for="type">Type</label>
+    <input type="text" class="form-control" id="type" placeholder="Type of deposit">
+  </div>
+  <div class="form-group">
+    <label for="transactionDate">Transaction Date</label>
+    <input type="text" class="form-control" id="transactionDate" placeholder="Another input">
+  </div>
+  <div class="form-group">
+    <label for="status">Status</label>
+    <input type="text" class="form-control" id="status" placeholder="Another input">
+  </div>
+  <div class="form-group">
+    <label for="payeeId">Payee Id</label>
+    <input type="text" class="form-control" id="payeeId" placeholder="Another input">
+  </div>
+  <div class="form-group">
+    <label for="medium">Medium</label>
+    <input type="text" class="form-control" id="medium" placeholder="Another input">
+  </div>
+  <div class="form-group">
+    <label for="amount">Amount</label>
+    <input type="text" class="form-control" id="amount" placeholder="Another input">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" id="description" placeholder="Another input">
+  </div>
+  <button type="submit" class="btn btn-info" (click)="save()">Submit</button>
+</form>
