@@ -24,7 +24,7 @@ export class CreateDepositComponent implements OnInit {
   }
 
   save() {
-    return this.depositService.save(this.deposit.id, this.deposit).subscribe(data => {
+    return this.depositService.save(this.deposit.account_id, this.deposit).subscribe(data => {
       this.gotoAccountDetails();
     });
   }
