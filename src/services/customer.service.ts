@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Customer } from '../models/Customer'
+import { Customer } from 'src/models/Customer'; 
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class CustomerService {
   public API = 'http://localhost:8080/customers/'
 
   //Create /customers
-  create(customer:Object){
+  create( customer: Object ) { 
     return this.httpClient.post(this.API, customer);
   }
   //getAll /customers

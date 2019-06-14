@@ -18,7 +18,7 @@ const routes: Routes = [
 {path: ':account_id/update-withdrawal', component: CreateWithdrawalComponent},
 {path: ':account_id/create-deposit', component: CreateDepositComponent},
 {path: ':account-id/update-deposit', component: CreateDepositComponent},
-{path: 'create-customer', component: CustomerSignUpComponent},
+{path: 'test', component: CustomerSignUpComponent},
 {path: ':customer-id/update-customer', component: CustomerSignUpComponent},
 {path: ':customer_id/profile', component: CustomerProfileComponent},
 {path: ':customer_id/accounts/:account_id', component: AccountDetailsComponent},
