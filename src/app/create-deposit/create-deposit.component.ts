@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class CreateDepositComponent implements OnInit {
 
-  deposit: Deposit = {id: 0, type: '', transaction_date: '', status: '', payee_id: 0, medium: '', amount: 0, description: ''};
+  deposit: Deposit = {id: 0, type: '', transaction_date: '', status: '', account_id: 0, medium: '', amount: 0, description: ''};
   id: number;
   sub: Subscription;
 
@@ -24,7 +24,7 @@ export class CreateDepositComponent implements OnInit {
   }
 
   save() {
-    return this.depositService.save(this.deposit.id, this.deposit).subscribe(data => {
+    return this.depositService.save(this.deposit.account_id, this.deposit).subscribe(data => {
       this.gotoAccountDetails();
     });
   }

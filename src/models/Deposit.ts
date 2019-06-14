@@ -5,7 +5,7 @@ export interface Deposit{
     type: string;
     transaction_date:string;
     status:string;
-    payee_id:number;
+    account_id:number;
     medium: string;
     amount: number;
     description:string;
