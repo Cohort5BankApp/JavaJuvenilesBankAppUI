@@ -21,18 +21,18 @@ export class CreateBillComponent implements OnInit {
 
 save() {
 return this.billService.create(this.bill).subscribe(result => {
-  this.gotoAccountDeails();
-})
+  this.gotoAccountDetails();
+});
 }
 
 delete() {
 return this.billService.delete(this.bill.id).subscribe(result => {
-  this.gotoAccountDeails();
-})
+  this.gotoAccountDetails();
+});
 }
 
-gotoAccountDeails() {
-this.router.navigate(['/account']);
+gotoAccountDetails() {
+this.router.navigate(['/accounts']);
 }
 
 ngOnInit() {
@@ -44,10 +44,10 @@ this.sub = this.route.params.subscribe(params => {
         this.bill = bill;
       } else {
         console.log(`Bill not found with id, '${id}' returning to details`);
-        this.gotoAccountDeails();
+        this.gotoAccountDetails();
       }
-    })
+    });
   }
-})
+});
 }
 }

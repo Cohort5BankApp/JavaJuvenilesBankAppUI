@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Deposit } from '../models/deposit';
+import { Deposit } from '../models/Deposit';
 
 @Injectable({
   providedIn: 'root'
@@ -16,15 +16,15 @@ export class DepositService {
     this.depositUrl ='http://localhost:8080';
    }
    public getOne(id: number){
-     return this.http.get(this.depositUrl +"/deposits" + id);
+     return this.http.get(this.depositUrl +"/deposits/" + id);
    }
    public save(id:number,deposit: Deposit){
-     return this.http.post<Deposit>(this.depositUrl + "/accounts" + id +"deposits",deposit )
+     return this.http.post<Deposit>(this.depositUrl + "/accounts/" + id +"/deposits/",deposit )
    }
    public update(id: number, deposit: Deposit){
-     return this.http.put(this.depositUrl+"/deposits"+id,deposit);
+     return this.http.put(this.depositUrl+"/deposits/"+id,deposit);
    }
    public delete(id:number){
-     return this.http.delete(this.depositUrl+"/deposits"+id);
+     return this.http.delete(this.depositUrl+"/deposits/"+id);
    }
 }

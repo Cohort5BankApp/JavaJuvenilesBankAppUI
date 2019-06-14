@@ -11,7 +11,7 @@ export class BillService {
   private billUrl: string;
 
   constructor(private http: HttpClient) { 
-    this.billUrl = 'http://localhost:8080/bill/';
+    this.billUrl = 'http://localhost:8080/bills/';
   } 
 
   public findAll(): Observable<Bill[]>{
