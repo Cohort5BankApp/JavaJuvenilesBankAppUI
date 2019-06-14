@@ -1,16 +1,47 @@
-<h1>Withdrawal</h1>
-
 <form>
-  <div class="form-group">
-    <label for="formGroupExampleInput">Transaction Date</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+  <div class="form-group col-md-6">
+    <label for="type">ID</label>
+    <input type="text" [(ngModel)]="withdrawal.id" class="form-control" id="type" placeholder="Withdrawal Id"
+      [ngModelOptions]="{standalone: true}">
   </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput2">Amount</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+  <div class="form-group col-md-6">
+    <label for="type">Type</label>
+    <input type="text" [(ngModel)]="withdrawal.type" class="form-control" id="type" placeholder="Type of withdrawal"
+      [ngModelOptions]="{standalone: true}">
   </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput2">Description</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+  <div class="form-group col-md-6">
+    <label for="transaction_date">Transaction Date</label>
+    <input type="text" [(ngModel)]="withdrawal.transaction_date" class="form-control" id="transactionDate"
+      placeholder="Date of withdrawal" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="status">Status</label>
+    <input type="text" [(ngModel)]="withdrawal.status" class="form-control" id="status" placeholder="Status of withdrawal"
+      [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="payee_id">Payee Id</label>
+    <input type="text" [(ngModel)]="withdrawal.account_id" class="form-control" id="payeeId" placeholder="Account Id"
+      [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="medium">Medium</label>
+    <input type="text" [(ngModel)]="withdrawal.medium" class="form-control" id="medium" placeholder="Medium type"
+      [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="amount">Amount</label>
+    <input type="text" [(ngModel)]="withdrawal.amount" class="form-control" id="amount" placeholder="Amount of withdrawal"
+      [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="description">Description</label>
+    <input type="text" [(ngModel)]="withdrawal.description" class="form-control" id="Withdrawal description"
+      placeholder="Another input" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group col-md-6">
+    <button type="submit" class="btn btn-info" (click)="save()">Submit</button>
   </div>
 </form>
+
+
