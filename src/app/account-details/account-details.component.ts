@@ -3,6 +3,8 @@ import { AccountService } from 'src/services/account.service'
 import { Account } from 'src/models/Account'
 import { Deposit } from 'src/models/Deposit'
 import { Withdrawal } from 'src/models/Withdraw'
+import { ActivatedRoute, Router} from '@angular/router'
+import { Subscription } from 'rxjs'
 
 
 @Component({
@@ -17,7 +19,7 @@ withdrawals: Array<Withdrawal>;
 account_id: number;
 
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
    this.accountService.get(this.account_id).subscribe(data => {
@@ -31,7 +33,10 @@ account_id: number;
    })
   }
 
-  
-
+  deleteaccount(){
+    this.accountService.remove(this.account_id).subscribe(data => {
+      this.account = data as any;
+    }) 
+  }
 }
 

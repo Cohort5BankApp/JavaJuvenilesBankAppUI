@@ -1,14 +1,27 @@
+
 <ul>
-  
+  <h1><li>{{account.nickname}}</li></h1><br>
+
+  <li>{{account.rewards}}</li><br>
+
+  <li>{{account.balance}}</li><br>
+
+  <li>{{account.type}}</li><br>
+
 </ul>
 
-<table width="100%" >
-  <thead>
-    <th>Deposit</th>
+<h1> Statement </h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Deposits</th>
+        <th scope="col">Withdrawals</th>
+      </tr>
+    </thead>
+</table>
 
-    <th>Withdrawal</th>
+<!-- button that goes to the customer profile using router  -->
+<button [routerLink]="['/customer_id/profile']" type="button" class="btn btn-danger">Customer Profile</button>
 
-  </thead>
-<button [routerLink]="['/']"> Sign Out </button>
-
-//go back to customer profile
+<!-- button that deletes the accounts associated with a customer using router -->
+<button [routerLink]="['/customer_id/profile']" type="button" class="btn btn-danger">Delete Account</button>
