@@ -34,6 +34,8 @@
               <option [ngValue]="x" *ngFor="let x of type">{{x}}</option> -->
             </div>
             <button type="submit" class="btn btn-info">Submit</button>
+            <button type="submit" class="btn btn-info" *ngIf="update" (click)="updateM()">Update</button>
+            <button type="submit" class="btn btn-info" *ngIf="update" (click)="delete()">Delete</button>
     </form>
   </div>
 </div>
