@@ -3,6 +3,7 @@ import { Customer } from '../../models/Customer';
 import { CustomerService } from '../../services/customer.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-sign-up',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./customer-sign-up.component.css']
 })
 export class CustomerSignUpComponent implements OnInit {
-customer: Customer;
+customer: Customer = {id: 0, first_name: '', last_name: '', addresses: {address_id:0, street_name: '', street_number: '', city: '', state: '', zip: ''}}
 sub: Subscription;
 
 
@@ -19,14 +20,22 @@ sub: Subscription;
   }
 
   onSubmit(){
+    console.log(this.customer)
 this.customerService.create(this.customer).subscribe(result => {this.goToCustomerProfile});
   }
 
+  
+
   goToCustomerProfile(){
-    this.router.navigate([''])
+    this.router.navigate([':customer_id/profile'])
   }
 
   ngOnInit() {
+    this.customerService.getAll().subscribe(data => 
+      {
+        console.log(data)
+      }
+      ) 
     this.sub = this.route.params.subscribe(params =>{
       const id = params['id'];
       if(id){
