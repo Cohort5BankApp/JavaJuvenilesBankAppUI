@@ -19,6 +19,7 @@ export class CreateAccountComponent implements OnInit {
   update:Boolean;
   url:String;
   accountU:string;
+  UrlId;
 
   constructor(private route:ActivatedRoute, private router:Router, private service:AccountService) {
 
@@ -34,23 +35,26 @@ export class CreateAccountComponent implements OnInit {
    
 
   ngOnInit() {
-    console.log(window.location.href)
-  this.service.getAll().subscribe(data => 
+  this.service.get(this.UrlId[3]).subscribe(data => 
     console.log(data.data))
-    if(this.accounts.customer_id==0){
+
+
+    if(this.accounts.customer_id ===0){
       this.update= false;
     } else{
       this.update= true;
     }
-    console.log(this.update)
+
+
     this.url= window.location.href;
+    this.UrlId=this.url.split('/');
+    this.accounts.account_id = this.UrlId[3];
   }
   onSubmit(){
     let id :number = +this.accounts.account_id;
     this.service.save(this.accounts, id).subscribe(result =>{
       this.gotoAccountList();
     }, error => console.error(error));
-    console.log(this.Account);
     }
     
   gotoAccountList(){
