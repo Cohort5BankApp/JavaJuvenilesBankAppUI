@@ -4,7 +4,7 @@ import { AccountService } from 'src/services/account.service';
 import { FormsModule } from '@angular/forms';
 import { Message } from 'src/models/Message';
 import {Account } from 'src/models/Account';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-create-account',
@@ -14,11 +14,15 @@ import {Account } from 'src/models/Account';
 export class CreateAccountComponent implements OnInit {
 
   type:string[] =["Savings","Checking","Credit"];
-  Account: Account;
+  // Account: Account[] = [{account_id: 0, nickname:"", rewards:0,balance:0,customer_id:0,type:""}]
+  allAccounts:Account[];
   accounts:Account ={account_id: 0, nickname:"", rewards:0,balance:0,customer_id:0,type:""};
   update:Boolean;
+  urlA;
+  UrlId;
   url:String;
   accountU:string;
+  sub:Subscription;
 
   constructor(private route:ActivatedRoute, private router:Router, private service:AccountService) {
 
@@ -34,9 +38,24 @@ export class CreateAccountComponent implements OnInit {
    
 
   ngOnInit() {
-    console.log(window.location.href)
+    // this.sub = this.route.params.subscribe(params => {
+    //   const id = params['id'];
+    //   if (id) {
+    //     this.service.get(id).subscribe((data: any) => {
+    //       if (data) {
+    //         this.allAccounts = data;
+    //         console.log(data);
+    //       } else {
+    //         console.log("Error in sub");
+    //         this.gotoAccountList();
+    //       }
+    //     }
+    //     )}
+    //   })
+
   this.service.getAll().subscribe(data => 
-    console.log(data.data))
+    this.allAccounts = data.data );
+
     if(this.accounts.customer_id==0){
       this.update= false;
     } else{
@@ -44,13 +63,17 @@ export class CreateAccountComponent implements OnInit {
     }
     console.log(this.update)
     this.url= window.location.href;
+    this.urlA = this.url.split("/");
+    this.UrlId = this.urlA[3];
+    this.accounts.account_id = this.UrlId;
+    console.log(this.accounts.account_id);
+
   }
   onSubmit(){
     let id :number = +this.accounts.account_id;
     this.service.save(this.accounts, id).subscribe(result =>{
       this.gotoAccountList();
     }, error => console.error(error));
-    console.log(this.Account);
     }
     
   gotoAccountList(){
