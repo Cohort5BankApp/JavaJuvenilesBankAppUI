@@ -6,7 +6,6 @@ import { Subscription } from 'rxjs';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-create-bill',
   templateUrl: './create-bill.component.html',
