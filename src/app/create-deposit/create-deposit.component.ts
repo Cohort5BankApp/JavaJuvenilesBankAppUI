@@ -20,7 +20,7 @@ export class CreateDepositComponent implements OnInit {
   depositId: any;
 
 
-  constructor(private route: ActivatedRoute, public router: Router, private depositService: DepositService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private depositService: DepositService) { }
 
   delete() {
     return this.depositService.delete(this.deposit.id).subscribe(data => {
