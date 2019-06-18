@@ -25,7 +25,7 @@ export class AccountService {
   //create an account method
 
   save(account: Object, customer_id: number): Observable<Object>{
-    return this.http.post(`http://localhost:8080/customers/${customer_id}/accounts`, account)
+    return this.http.post(`http://localhost:8080/customers/${customer_id}/accounts`, account);
   }
 
   //get an account owner method
