@@ -8,6 +8,7 @@ import { CustomerSignUpComponent } from 'src/app/customer-sign-up/customer-sign-
 import { CustomerProfileComponent } from 'src/app/customer-profile/customer-profile.component';
 import { AccountDetailsComponent } from 'src/app/account-details/account-details.component';
 import { TestComponent } from '../test/test.component';
+import { CustomerListComponent } from '../customer-list/customer-list.component';
 
 const routes: Routes = [
 {path: ':customer_id/create-account', component: CreateAccountComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
 {path: ':customer-id/update-customer', component: CustomerSignUpComponent},
 {path: ':customer_id/profile', component: CustomerProfileComponent},
 {path: ':customer_id/accounts/:account_id', component: AccountDetailsComponent},
+{path: 'customers', component: CustomerListComponent}
 
 
 
