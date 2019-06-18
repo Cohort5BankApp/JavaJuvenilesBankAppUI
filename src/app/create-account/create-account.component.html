@@ -35,8 +35,6 @@
               <label for="Savings">Savings</label>
               <input type="radio" [(ngModel)]="accounts.type" id="type" value="Credit" name="type">
               <label for="Credit">Credit</label>
-              <!-- <option selected="" value=""></option>
-              <option [ngValue]="x" *ngFor="let x of type">{{x}}</option> -->
             </div>
             <button type="submit" class="btn btn-info" *ngIf="!update">Submit</button>
             <button type="submit" class="btn btn-info" *ngIf="update" (click)="updateM()">Update</button>
