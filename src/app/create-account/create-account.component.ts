@@ -25,31 +25,29 @@ export class CreateAccountComponent implements OnInit {
 
    }
    updateM(){
-     this.service.update(this.accounts.customer_id,this.accounts);
+     this.service.update(this.accounts.account_id,this.accounts);
      this.gotoAccountList();
    }
    delete(){
-     this.service.remove(this.accounts.customer_id);
+     this.service.remove(this.accounts.account_id);
      this.gotoAccountList();
    }
    
 
   ngOnInit() {
-  this.service.get(this.UrlId[3]).subscribe(data => 
-    console.log(data.data))
-
-
-    if(this.accounts.customer_id ===0){
-      this.update= false;
-    } else{
-      this.update= true;
-    }
-
-
-    this.url= window.location.href;
-    this.UrlId=this.url.split('/');
-    this.accounts.account_id = this.UrlId[3];
+    // this.service.get(this.UrlId).subscribe(data => 
+    //   console.log(data.data))
+      if(this.accounts.customer_id ===0){
+        this.update= false;
+      } else{
+        this.update= true;
+      }
+      
+  this.url= window.location.href;
+  this.UrlId=this.url.split('/');
+  this.accounts.customer_id = this.UrlId[3];
   }
+
   onSubmit(){
     let id :number = +this.accounts.account_id;
     this.service.save(this.accounts, id).subscribe(result =>{
