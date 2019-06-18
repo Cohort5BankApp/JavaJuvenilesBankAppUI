@@ -15,7 +15,9 @@ import { DepositService } from 'src/services/deposit.service';
 import { WithdrawalService } from 'src/services/withdraw.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { FormsModule } from '@angular/forms'; 
 import { TestComponent } from './test/test.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
 
 
 
@@ -30,13 +32,15 @@ import { TestComponent } from './test/test.component';
     CreateBillComponent,
     CustomerProfileComponent,
     AccountDetailsComponent,
-    TestComponent
+    TestComponent,
+    CustomerListComponent
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    FormsModule
 
   ],
   providers: [

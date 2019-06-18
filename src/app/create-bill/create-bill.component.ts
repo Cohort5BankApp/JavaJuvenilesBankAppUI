@@ -3,6 +3,8 @@ import { Bill } from '../../models/Bill';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BillService } from '../../services/bill.service';
 import { Subscription } from 'rxjs';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -13,21 +15,23 @@ import { Subscription } from 'rxjs';
 
 export class CreateBillComponent implements OnInit {
 
-  bill: Bill = {id: 0, type: '', payee: '', nickname: '', creation_date: '', payment_date: '', recurring_date: 0, upcoming_payment_date: '', payment_amount: 0, account_id: 0}; 
+  type:string[] =["Savings","Checking","Credit"];
+  Bill:Bill;
+  bills: Bill = {id: 0, type: '', payee: '', nickname: '', creation_date: '', payment_date: '', recurring_date: '', upcoming_payment_date: '', payment_amount: '', account_id: 0}; 
   sub: Subscription;
 
   constructor(private route: ActivatedRoute, private router: Router, private billService: BillService){
   }
 
 
-save() {
-return this.billService.create(this.bill).subscribe(result => {
+onSubmit() {
+return this.billService.create(this.bills, 1).subscribe(result => {
   this.gotoAccountDetails();
 });
 }
 
 delete() {
-return this.billService.delete(this.bill.id).subscribe(result => {
+return this.billService.delete(this.bills.id).subscribe(result => {
   this.gotoAccountDetails();
 });
 }
@@ -42,7 +46,7 @@ this.sub = this.route.params.subscribe(params => {
   if(id){
     this.billService.find(id).subscribe((bill: Bill) => {
       if (bill) {
-        this.bill = bill;
+        this.bills = bill;
       } else {
         console.log(`Bill not found with id, '${id}' returning to details`);
         this.gotoAccountDetails();

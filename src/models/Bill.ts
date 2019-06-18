@@ -6,8 +6,8 @@ export class Bill{
     nickname : string;
     creation_date : string;
     payment_date : string;
-    recurring_date : number;
+    recurring_date : string;
     upcoming_payment_date : string;
-    payment_amount : number;
+    payment_amount : string;
     account_id : number;
 }

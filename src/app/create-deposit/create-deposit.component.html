@@ -1,31 +1,86 @@
-<form>
-  <div class="form-group">
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group col-md-6" *ngIf="button">
+    <label for="type">ID</label>
+    <input type="text" [(ngModel)]="deposit.id" class="form-control" id="type" placeholder="Type of deposit"
+      [ngModelOptions]="{standalone: true}">
+  </div>
+  <!-- <div class="form-group col-md-6">
     <label for="type">Type</label>
-    <input type="text" class="form-control" id="type" placeholder="Type of deposit">
+    <input type="text" [(ngModel)]="deposit.type" class="form-control" id="type" placeholder="Type of deposit"
+      [ngModelOptions]="{standalone: true}">
+  </div> -->
+  <div class="form-group col-md-6">
+    <label for="type">Type of deposit</label>
+    <br>
+    <input type="radio" [(ngModel)]="deposit.type" id="type" value="p2p" [ngModelOptions]="{standalone: true}">
+    <label for="p2p">p2p</label>
+    <br>
+    <input type="radio" [(ngModel)]="deposit.type" id="type" value="deposit" [ngModelOptions]="{standalone: true}">
+    <label for="savings">Deposit</label>
+    <br>
+    <input type="radio" [(ngModel)]="deposit.type" id="type" value="withdrawal" [ngModelOptions]="{standalone: true}">
+    <label for="credit">Withdrawal</label>
   </div>
-  <div class="form-group">
-    <label for="transactionDate">Transaction Date</label>
-    <input type="text" class="form-control" id="transactionDate" placeholder="Another input">
+  <div class="form-group col-md-6">
+    <label for="transaction_date">Transaction Date</label>
+    <input type="text" [(ngModel)]="deposit.transaction_date" class="form-control" id="transactionDate"
+      placeholder="Transaction date" [ngModelOptions]="{standalone: true}">
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group col-md-6">
     <label for="status">Status</label>
-    <input type="text" class="form-control" id="status" placeholder="Another input">
+    <input type="text" [(ngModel)]="deposit.status" class="form-control" id="status" placeholder="Another input"
+      [ngModelOptions]="{standalone: true}">
+  </div> -->
+  <div class="form-group col-md-6">
+    <label for="status">Status</label>
+    <br>
+    <input type="radio" [(ngModel)]="deposit.status" id="status" value="pending" [ngModelOptions]="{standalone: true}">
+    <label for="pending">Pending</label>
+    <br>
+    <input type="radio" [(ngModel)]="deposit.status" id="status" value="cancelled"
+      [ngModelOptions]="{standalone: true}">
+    <label for="cancelled">Cancelled</label>
+    <br>
+    <input type="radio" [(ngModel)]="deposit.status" id="status" value="completed"
+      [ngModelOptions]="{standalone: true}">
+    <label for="completed">Completed</label>
   </div>
-  <div class="form-group">
-    <label for="payeeId">Payee Id</label>
-    <input type="text" class="form-control" id="payeeId" placeholder="Another input">
-  </div>
-  <div class="form-group">
+  <!-- <div class="form-group col-md-6">
+    <label for="payee_id">Account Id</label>
+    <input type="text" [(ngModel)]="deposit.account_id" class="form-control" id="payeeId" placeholder="ID of account"
+      [ngModelOptions]="{standalone: true}">
+  </div> -->
+  <!-- <div class="form-group col-md-6">
     <label for="medium">Medium</label>
-    <input type="text" class="form-control" id="medium" placeholder="Another input">
+    <input type="text" [(ngModel)]="deposit.medium" class="form-control" id="medium" placeholder="Another input"
+      [ngModelOptions]="{standalone: true}">
+  </div> -->
+  <div class="form-group col-md-6">
+    <label for="medium">Medium</label>
+    <br>
+    <input type="radio" [(ngModel)]="deposit.medium" id="medium" value="balance" [ngModelOptions]="{standalone: true}">
+    <label for="balance">Balance</label>
+    <br>
+    <input type="radio" [(ngModel)]="deposit.medium" id="medium" value="rewards" [ngModelOptions]="{standalone: true}">
+    <label for="rewards">Rewards</label>
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-6">
     <label for="amount">Amount</label>
-    <input type="text" class="form-control" id="amount" placeholder="Another input">
+    <input type="text" [(ngModel)]="deposit.amount" class="form-control" id="amount" placeholder="Amount of deposit"
+      [ngModelOptions]="{standalone: true}">
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-6">
     <label for="description">Description</label>
-    <input type="text" class="form-control" id="description" placeholder="Another input">
+    <input type="text" [(ngModel)]="deposit.description" class="form-control" id="description"
+      placeholder="Description of deposit" [ngModelOptions]="{standalone: true}">
   </div>
-  <button type="submit" class="btn btn-info" (click)="save()">Submit</button>
+  <div class="form-group col-md-6">
+    <button type="submit" class="btn btn-info" *ngIf="!button" (click)="save()">Submit</button>
+  </div>
+  <div class="form-group col-md-6">
+    <button type="submit" class="btn btn-info" *ngIf="button" (click)="update()">Update</button>
+  </div>
+  <div class="form-group col-md-6">
+    <button type="submit" class="btn btn-info" *ngIf="button" (click)="delete()">Delete</button>
+  </div>
 </form>
