@@ -18,8 +18,8 @@ export class DepositService {
    public getOne(id: number){
      return this.http.get(this.depositUrl +"/deposits/" + id);
    }
-   public save(id:number,deposit: Deposit){
-     return this.http.post<Deposit>(this.depositUrl + "/accounts/" + id +"/deposits/",deposit )
+   public save(id: number, deposit: Deposit): Observable<Deposit> {
+     return this.http.post<Deposit>(this.depositUrl + '/accounts/' + id + '/deposits/', deposit);
    }
    public update(id: number, deposit: Deposit){
      return this.http.put(this.depositUrl+"/deposits/"+id,deposit);
