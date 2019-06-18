@@ -13,7 +13,7 @@ export class CreateWithdrawalComponent implements OnInit {
 
   withdrawal: Withdrawal = {id: 0, type: '', transaction_date: '', status: '', account_id: 0, medium: '', amount: 0, description: ''};
   id: number;
-  sub: Subscription;
+  //sub: Subscription;
   button: boolean;
   withdrawalLink: any[];
   url: string = window.location.href;
