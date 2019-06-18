@@ -8,33 +8,35 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
 
-  constructor(private customer:Customer,private httpClient:HttpClient) { }
+  private API: 'http://localhost:8080/customers/'
 
-  public API = 'http://localhost:8080/customers/'
+  constructor(private httpClient:HttpClient) { 
+    
+  }
 
   //Create /customers
-  create(customer:Object){
-    return this.httpClient.post(this.API, customer);
+  public create(customer:Customer): Observable<Customer>{
+    return this.httpClient.post<Customer>(this.API, customer);
   }
   //getAll /customers
-  getAll(): Observable<any>{
-    return this.httpClient.get(this.API)
+  public findAll(): Observable<Customer>{
+    return this.httpClient.get<Customer>(this.API)
   }
   //getCustomerById /customers/{id}
-  getById(id:number):Observable<any>{
+  public getById(id:number):Observable<any>{
     return this.httpClient.get(this.API + id)
   }
   //update /customers/{id}
   // Update needs an object 
-  update(id:number){
-    return this.httpClient.put(this.API + id, this.customer.id)
+  public update(id:number, value: any){
+    return this.httpClient.put(this.API + id, value)
   }
   //getBillsByCustomer /customers/{id}/bills
-  getBills(id:number){
+  public getBills(id:number){
     return this.httpClient.get(this.API + id + '/bills')
   }
   //getAccountByCustomer /customers/{id}/accounts
-  getAccountByCustomer(id:number){
+  public getAccountByCustomer(id:number){
     return this.httpClient.get(this.API + id + '/accounts')
   }
 }

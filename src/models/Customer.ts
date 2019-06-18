@@ -1,6 +1,6 @@
 import{ Address } from 'src/models/Address';
 
-export class Customer{
+export interface Customer{
     id: number;
     first_name: string;
     last_name: string;

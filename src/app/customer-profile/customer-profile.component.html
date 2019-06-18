@@ -1,15 +1,19 @@
-<div>
-  <h1>Account</h1>
-  <table class="table">
-    <tbody *ngOnInit>
+<div class="container">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
         <tr>
-          <th scope="account_id">1</th>
-          <th scope="nickname">2</th>
-          <th scope="rewards">3</th>
-          <th scope="balance">4</th>
-          <th scope="customer_id">5</th>
-          <th scope="type">6</th>
+          <th scope="col">Customer ID</th>
+          <th scope="col">Nickname</th>
+          <th scope="col">Account ID</th>
+          <th scope="col">Rewards</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Type</th>
         </tr>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <tr *ngFor="let accounts of Account">
+          <td>{{ accounts.id}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

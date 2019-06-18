@@ -1,37 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
+import {Customer } from 'src/models/Customer'
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Customer } from 'src/models/Customer';
+import { Address } from 'src/models/Address';
+
 
 @Component({
   selector: 'app-customer-profile',
   templateUrl: './customer-profile.component.html',
-  styleUrls: ['./customer-profile.component.css']
+  styleUrls: ['./customer-profile.component.css'],
 })
 export class CustomerProfileComponent implements OnInit {
 
-  accounts: Account[];
-  customer:Customer;
+  customer:Customer = {id:0,first_name:"",last_name:"",address:{address_id:0,street_number:"",street_name:"",city:"",state:"",zip:""}}
+  accounts: {Account}[];
+  
 
   constructor(private customerService:CustomerService,
-    private activatedRoute:ActivatedRoute,
-    private routeLink:RouterLink,
-    private subscription:Subscription
     ) { }
 
   ngOnInit() {
-    this.customerService.getAccountByCustomer(this.customer.id).subscribe(data => {
-      console.log(data)
-      this.accounts = data as any;
-    })
-
+    // this.customerService.findAll().subscribe(data => {console.log(
+    //   this.accounts = data)
+    // });
   }
-
-  displayCustomer(){
-    this.customerService.getById
-  }
-
-
 
 }
