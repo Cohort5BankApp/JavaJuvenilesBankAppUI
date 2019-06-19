@@ -32,11 +32,9 @@ sub: Subscription;
   }
 
   onSubmit(){
-    console.log(this.customer)
-    console.log(this.customer.addresses)
     this.addresses = [this.address];
     this.customer.addresses = this.addresses;
-this.customerService.create(this.customer).subscribe(result => {this.goToCustomerProfile});
+this.customerService.create(this.customer).subscribe(result => {this.goToCustomerProfile()});
   }
 
   
@@ -46,11 +44,6 @@ this.customerService.create(this.customer).subscribe(result => {this.goToCustome
   }
 
   ngOnInit() {
-    this.customerService.getAll().subscribe(data => 
-      {
-        console.log(data)
-      }
-      ) 
     this.sub = this.route.params.subscribe(params =>{
       const id = params['id'];
       if(id){
