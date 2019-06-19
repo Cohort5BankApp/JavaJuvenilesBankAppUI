@@ -1,39 +1,45 @@
+<div class="card my-5">
+  <div class="card-body col-md-8">
+
 <form #customerForm= "ngForm" (ngSubmit)="onSubmit()"> 
-    <title> {{ customer.id ? 'Sign-Up' : 'Edit Your Profile' }} </title>
-    <div>
+    <h2> {{ customer.id ? 'Edit Your Profile' : 'Customer Sign-Up' }} </h2>
+    
+    <div class="form-group">
     <label> First Name </label>
-    <input [(ngModel)]= "customer.first_name"  required name="first_name" #firstName/>
+    <input [(ngModel)]= "customer.first_name" class="form-control" required name="first_name" #firstName/>
     </div>
-    <div>
+    <div class="form-group">
       <label> Last Name </label>
-      <input [(ngModel)]= "customer.last_name" required name="last_name" #lastName/>
+      <input [(ngModel)]= "customer.last_name" class="form-control" required name="last_name" #lastName/>
     </div>
-    <div>
+    <div class= "form-group">
       <label> Street Number </label>
-      <input [(ngModel)]= "customer.addresses.street_number" required name="street_number" #streetNumber/>
+      <input [(ngModel)]= "address.street_number" class="form-control" required name="street_number" #streetNumber/>
     </div>
-    <div> 
+    <div class= "form-group"> 
       <label> Street Name </label>
-      <input [(ngModel)]= "customer.addresses.street_name" required name="street_name" #streetName/>
+      <input [(ngModel)]= "address.street_name" class="form-control" required name="street_name" #streetName/>
       </div>
-      <div>
+      <div class= "form-group">
         <label>
           City
         </label>
-    <input [(ngModel)]= "customer.addresses.city" required name="city" #city/>
+    <input [(ngModel)]= "address.city" class="form-control" required name="city" #city/>
       </div>
-      <div>
+      <div class= "form-group">
         <label> State </label>
-        <input [(ngModel)]= "customer.addresses.state" required name="state" #state/>
+        <input [(ngModel)]= "address.state" class="form-control" required name="state" #state/>
       </div>
-      <div>
+      <div class= "form-group">
         <label> Zip </label>
-        <input [(ngModel)]= "customer.addresses.zip" required name="zip" #zip/>
+        <input [(ngModel)]= "address.zip" class="form-control" required name="zip" #zip/>
       </div>
-      <div>
+      <div class="form-group">
         <button type="submit" [disabled]="!customerForm.form.valid" >Submit</button>
       </div>
-      <div>
+      <div class="form-group">
         <a  routerLink = "/home" > Cancel</a>
       </div>
     </form>
+  </div>
+</div>
