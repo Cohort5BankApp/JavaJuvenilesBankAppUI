@@ -3,12 +3,15 @@ import { Customer } from 'src/models/Customer';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
-  constructor(private customer:Customer,private httpClient:HttpClient) { }
+
+
+  constructor(private httpClient:HttpClient) { }
 
   public API = 'http://localhost:8080/customers/';
 
@@ -26,8 +29,8 @@ export class CustomerService {
   }
   //update /customers/{id}
   // Update needs an object 
-  update(id:number){
-    return this.httpClient.put(this.API + id, this.customer.id)
+  update(id:number, customer: Object){
+    return this.httpClient.put(this.API + id, customer)
   }
   //getBillsByCustomer /customers/{id}/bills
   getBills(id:number){
