@@ -23,7 +23,7 @@ const routes: Routes = [
 {path: ':id/update-customer', component: CustomerSignUpComponent},
 {path: ':customer_id/profile', component: CustomerProfileComponent},
 {path: ':id/accounts/:account_id', component: AccountDetailsComponent},
-{path: 'customers', component: CustomerListComponent},
+{path: 'customers', component: CustomerListComponent}
 // {path: 'update-bill/:id', component: CreateBillComponent},
 // {path: 'update-deposit/:id', component: CreateDepositComponent},
 // {path: 'update-withdrawal/:id', component: CreateWithdrawalComponent},

@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { CustomerService } from 'src/services/customer.service';
 import { Customer } from 'src/models/Customer';
 import { Location } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class AccountDetailsComponent implements OnInit {
   withdraw:Observable<Withdrawal[]>;
   cust:Observable<Customer[]>;
 
-  constructor(private billService:BillService, private withdrawService:WithdrawalService, private depositService:DepositService, private accountService:AccountService, private location:Location) {
+  constructor(private billService:BillService, private withdrawService:WithdrawalService, private depositService:DepositService, private accountService:AccountService, private location:Location, private router:Router, private route:ActivatedRoute) {
    }
 
   ngOnInit() {
@@ -46,6 +47,34 @@ export class AccountDetailsComponent implements OnInit {
   }
   public back(){
     this.location.back();
+  }
+  public navigateTo(id:number,type:String){
+    if(type =='bill'){
+    this.router.navigate([this.account_id +'/update-bill/' +id]);
+    } else if(type =='deposit'){
+    this.router.navigate([this.account_id + '/update-deposit/' +id]);
+    } else if(type =='withdraw'){
+    this.router.navigate([this.account_id + '/update-withdrawal' +id]);
+    }
+    console.log(type);
+  }
+  public navigateBill(id:number){
+    this.router.navigate([this.account_id +'/update-bill/' + id]);
+  }
+  public navigateDeposit(id:number){
+    this.router.navigate([this.account_id +'/update-deposit/' + id]);
+  }
+  public navigateWithdraw(id:number){
+    this.router.navigate([this.account_id +'/update-withdrawal/' + id]);
+  }
+  public createBill(){
+    this.router.navigate([this.account_id+ '/create-bill']);
+  }
+  public createDeposit(){
+    this.router.navigate([this.account_id+'/create-deposit']);
+  }
+  public createWithdrawal(){
+    this.router.navigate([this.account_id+ '/create-withdrawal'])
   }
 
 
