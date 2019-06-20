@@ -1,27 +1,25 @@
-<!-- <div class="card my-5">
-  <div class="card-body">
-    <table class="table table-bordered table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Address</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let customer of customers">
-          <td>{{ customer.id }}</td>
-          <td><a [routerLink]="['/:customer-id/profile', customer.id]">{{ customer.first_name }}</a></td>
-          <td>{{ customer.last_name }}</td>
-          <td>{{ customer.address.address_id }}, {{ customer.address.street_number }},
-            {{ customer.address.street_name }}, {{ customer.address.city }}, {{ customer.address.state }},
-            {{ customer.address.zip }}</td>
-        </tr>
-      </tbody>
-    </table>
+<form (ngSubmit)="onSubmit()">
+  <div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped table-hover w-auto">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers">
+            <td>{{ customer.customer_id }}</td>
+            <td><a [routerLink]="['/:customer_id/profile', customer.id]">{{ customer.first_name }}</a></td>
+            <td>{{ customer.last_name }}</td>
+            <td *ngFor="let addy of customer.addresses">{{ addy.street_number }} {{ addy.street_name }},
+              {{ addy.city }}, {{ addy.state }}, {{ addy.zip }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div> -->
-<p>
-  works bitch
-</p>
+</form>
