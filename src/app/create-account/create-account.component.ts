@@ -28,64 +28,35 @@ export class CreateAccountComponent implements OnInit {
   constructor(private route:ActivatedRoute, private router:Router, private service:AccountService) {
 
    }
-   updateM(){
-     this.service.update(this.accounts.account_id,this.accounts);
-     this.gotoAccountList();
-   }
-   delete(){
-     this.service.remove(this.accounts.account_id);
-     this.gotoAccountList();
-   }
-   
 
   ngOnInit() {
-    // this.service.get(this.UrlId).subscribe(data => 
-    //   console.log(data.data))
-      if(this.accounts.customer_id ===0){
+
+    //gets all accounts
+    this.service.getAll().subscribe(data => 
+      this.allAccounts = data.data );
+
+      if(this.accounts.customer_id==0){
         this.update= false;
       } else{
         this.update= true;
       }
-      
-  this.url= window.location.href;
-  this.UrlId=this.url.split('/');
-  this.accounts.customer_id = this.UrlId[3];
-    // this.sub = this.route.params.subscribe(params => {
-    //   const id = params['id'];
-    //   if (id) {
-    //     this.service.get(id).subscribe((data: any) => {
-    //       if (data) {
-    //         this.allAccounts = data;
-    //         console.log(data);
-    //       } else {
-    //         console.log("Error in sub");
-    //         this.gotoAccountList();
-    //       }
-    //     }
-    //     )}
-    //   })
 
-  this.service.getAll().subscribe(data => 
-    this.allAccounts = data.data );
-
-    if(this.accounts.customer_id==0){
-      this.update= false;
-    } else{
-      this.update= true;
+      this.url= window.location.href;
+      this.urlA = this.url.split("/");
+      this.UrlId = this.urlA[3];
+      this.accounts.account_id = this.UrlId;
     }
-    this.url= window.location.href;
-    this.urlA = this.url.split("/");
-    this.UrlId = this.urlA[3];
-    this.accounts.account_id = this.UrlId;
-  }
+
+  
 
   onSubmit(){
-    let id :number = +this.accounts.account_id;
+    let id :number = this.accounts.account_id;
     this.service.save(this.accounts, id).subscribe(result =>{
       this.gotoAccountList();
     }, error => console.error(error));
     }
-    
+  
+    //route to the customer profile
   gotoAccountList(){
 
   }
