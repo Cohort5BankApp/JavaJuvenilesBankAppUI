@@ -1,4 +1,7 @@
-   <button></button>
+   <button (click)="back()">Back</button>
+   <button (click)="createDeposit()">Create Deposit</button>
+   <button (click)="createWithdrawal()">Create Withdraw</button>
+   <button (click)="createBill()">Create Bill</button>
    
    <h1 class="Display-Name">Bills</h1>
    <div class="card my-5">
@@ -20,7 +23,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let bills of bill">
-              <td>{{ bills.id }}</td>
+              <td><a (click)="navigateBill(bills.id)">{{ bills.id }}</a></td>
               <td>{{ bills.status }}</td>
               <td>{{ bills.payee }}</td>
               <td>{{ bills.nickname }}</td>
@@ -52,7 +55,7 @@
             </thead>
             <tbody>
                 <tr *ngFor= "let deposi of deposit">
-                    <td>{{deposi.id}}</td>
+                    <td><a (click)='navigateDeposit(deposi.id)'>{{deposi.id}}</a></td>
                     <td>{{deposi.type}}</td>
                     <td>{{deposi.transaction_date}}</td>
                     <td>{{deposi.status}}</td>
@@ -81,7 +84,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let withd of withdraw">
-                        <td>{{withd.id}}</td>
+                        <td><a (click)='navigateWithdraw(withd.id)'>{{withd.id}}</a></td>
                         <td>{{withd.type}}</td>
                         <td>{{withd.transaction_date}}</td>
                         <td>{{withd.status}}</td>
