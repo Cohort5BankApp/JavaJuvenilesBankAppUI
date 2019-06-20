@@ -22,7 +22,8 @@ customer : Customer;
 
   type:string[] =["Savings","Checking","Credit"];
   Bill:Bill;
-  bills: Bill = {id: 0, type: '', payee: '', nickname: '', creation_date: '', payment_date: '', recurring_date: 0, upcoming_payment_date: '', payment_amount: 0, account_id: 0}; 
+
+  bills: Bill = {id: 0, status: '', payee: '', nickname: '', creation_date: '', payment_date: '', recurring_date: 0, upcoming_payment_date: '', payment_amount: 0, account_id: 0}; 
   sub: Subscription;
 
   constructor(private route: ActivatedRoute, private router: Router, private billService: BillService){

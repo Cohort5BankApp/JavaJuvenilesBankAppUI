@@ -22,7 +22,7 @@ export class CustomerSignUpComponent implements OnInit {
     zip: ''
 };
 addresses:Address[];
-  customer: Customer = {customer_id: 0, first_name: '', last_name: '', addresses: this.addresses};
+  customer: Customer = {id: 0, first_name: '', last_name: '', addresses: this.addresses};
 
 sub: Subscription;
 
