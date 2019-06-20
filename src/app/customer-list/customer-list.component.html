@@ -14,7 +14,7 @@
         <tbody>
           <tr *ngFor="let customer of customers">
             <td>{{ customer.customer_id }}</td>
-            <td><a [routerLink]="['/:customer_id/profile', customer.id]">{{ customer.first_name }}</a></td>
+            <td><a (click)="Click(customer.customer_id)">{{ customer.first_name }}</a></td>
             <td>{{ customer.last_name }}</td>
             <td *ngFor="let addy of customer.addresses">{{ addy.street_number }} {{ addy.street_name }},
               {{ addy.city }}, {{ addy.state }}, {{ addy.zip }}</td>

@@ -36,4 +36,8 @@ export class CustomerListComponent implements OnInit {
     this.router.navigate(['/signup']);
   }
 
+  Click(id: number) {
+    this.router.navigate([`${id}/profile`]);
+  }
+
 }

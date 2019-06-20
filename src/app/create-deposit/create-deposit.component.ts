@@ -41,7 +41,7 @@ export class CreateDepositComponent implements OnInit {
   }
 
   gotoAccountDetails() {
-    this.router.navigate(['/accounts']);
+    this.router.navigate([`${this.depositId}/accounts/${this.deposit.account_id}`]);
   }
 
   onSubmit() {

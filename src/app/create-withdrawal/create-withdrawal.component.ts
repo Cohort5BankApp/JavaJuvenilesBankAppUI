@@ -28,7 +28,7 @@ export class CreateWithdrawalComponent implements OnInit {
   }
 
   save() {
-    return this.withdrawalService.save(this.withdrawal).subscribe(data => {
+    return this.withdrawalService.save(this.withdrawal, this.withdrawal.account_id).subscribe(data => {
       this.gotoAccountDetails();
     });
   }
@@ -40,7 +40,7 @@ export class CreateWithdrawalComponent implements OnInit {
   }
 
   gotoAccountDetails() {
-    this.router.navigate(['/accounts']);
+    this.router.navigate([`${this.withdrawalId}/accounts/${this.withdrawal.account_id}`]);
   }
 
   onSubmit() {

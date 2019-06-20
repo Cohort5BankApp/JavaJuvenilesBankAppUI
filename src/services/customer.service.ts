@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Customer } from 'src/models/Customer';
+
+import { Customer } from '../models/Customer';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -13,8 +14,10 @@ export class CustomerService {
 
   public API = 'http://localhost:8080/customers/';
 
-  // Create/customers
-  create(customer: Customer) {
+
+  //Create /customers
+  create(customer:Object){
+
     return this.httpClient.post(this.API, customer);
   }
   // getAll /customers
@@ -34,8 +37,10 @@ export class CustomerService {
   getBills(id: number) {
     return this.httpClient.get(this.API + id + '/bills');
   }
-  // getAccountByCustomer /customers/{id}/accounts
-  getAccount(id: number) {
-    return this.httpClient.get(this.API + id + '/accounts');
+
+  //getAccountByCustomer /customers/{id}/accounts
+  getAccountByCustomer(id:number){
+    return this.httpClient.get(this.API + id + '/accounts')
+
   }
 }

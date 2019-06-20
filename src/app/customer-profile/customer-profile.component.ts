@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../../services/customer.service';
 import { Subscription } from 'rxjs';
-import { CustomerService } from 'src/services/customer.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Customer } from 'src/models/Customer';
+
 @Component({
   selector: 'app-customer-profile',
   templateUrl: './customer-profile.component.html',
@@ -9,16 +11,5 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CustomerProfileComponent implements OnInit {
 
-  constructor(
-    private customerService: CustomerService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) { }
-
-  ngOnInit() {
-    
-  }
-
-
-
+  ngOnInit
 }
