@@ -48,13 +48,11 @@ export class CreateDepositComponent implements OnInit {
     console.log(this.deposit);
   }
 
-  //navigate to account detail page of deposit
-
   ngOnInit() {
     console.log(this.button);
     this.depositLink = this.url.split('/');
     this.depositId = this.depositLink[3];
-    this.deposit.account_id = this.depositId;
+    this.deposit.account_id = +this.depositId;
     console.log(this.depositLink);
     console.log(this.deposit);
 
@@ -63,20 +61,6 @@ export class CreateDepositComponent implements OnInit {
     } else {
       this.button = true;
     }
-    // this.depositId = this.url.split[1];
-    // this.sub = this.route.params.subscribe(params => {
-    //   const id = params['id'];
-    //   if(id){
-    //     this.depositService.getOne(id).subscribe((deposit: Deposit) => {
-    //       if(deposit) {
-    //         this.deposit = deposit;
-    //       } else {
-    //         console.log(`Deposit not found with id, '${id}' returning to list`);
-    //         this.gotoAccountDetails();
-    //       }
-    //     });
-    //   }
-    // });
     console.log(this.deposit);
   }
 

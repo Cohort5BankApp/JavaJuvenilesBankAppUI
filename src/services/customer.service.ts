@@ -13,29 +13,29 @@ export class CustomerService {
 
   public API = 'http://localhost:8080/customers/';
 
-  //Create /customers
-  create( customer: Object ) { 
+  // Create/customers
+  create(customer: Customer) {
     return this.httpClient.post(this.API, customer);
   }
-  //getAll /customers
-  getAll(): Observable<any>{
-    return this.httpClient.get<Customer[]>(this.API)
+  // getAll /customers
+  getAll(): Observable<any> {
+    return this.httpClient.get(this.API);
   }
-  //getCustomerById /customers/{id}
-  getById(id:number):Observable<any>{
-    return this.httpClient.get(this.API + id)
+  // getCustomerById /customers/{id}
+  getById(id: number): Observable<any> {
+    return this.httpClient.get(this.API + id);
   }
   //update /customers/{id}
   // Update needs an object 
   update(id:number,customer:Customer){
     return this.httpClient.put(this.API + id, customer)
   }
-  //getBillsByCustomer /customers/{id}/bills
-  getBills(id:number){
-    return this.httpClient.get(this.API + id + '/bills')
+  // getBillsByCustomer/customers/{id}/bills
+  getBills(id: number) {
+    return this.httpClient.get(this.API + id + '/bills');
   }
-  //getAccountByCustomer /customers/{id}/accounts
-  getAccount(id:number){
-    return this.httpClient.get(this.API + id + '/accounts')
+  // getAccountByCustomer /customers/{id}/accounts
+  getAccount(id: number) {
+    return this.httpClient.get(this.API + id + '/accounts');
   }
 }
