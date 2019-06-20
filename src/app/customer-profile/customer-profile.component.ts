@@ -11,27 +11,5 @@ import { Customer } from 'src/models/Customer';
 })
 export class CustomerProfileComponent implements OnInit {
 
-  accounts: Account[];
-  customer:Customer;
-
-  constructor(private customerService:CustomerService,
-    private activatedRoute:ActivatedRoute,
-    private routeLink:RouterLink,
-    private subscription:Subscription
-    ) { }
-
-  ngOnInit() {
-    this.customerService.getAccountByCustomer(this.customer.id).subscribe(data => {
-      console.log(data)
-      this.accounts = data as any;
-    })
-
-  }
-
-  displayCustomer(){
-    this.customerService.getById
-  }
-
-
-
+  ngOnInit
 }
