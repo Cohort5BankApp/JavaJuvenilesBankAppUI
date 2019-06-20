@@ -17,7 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms'; 
 import { TestComponent } from './test/test.component';
+
 import { SignInComponent } from './sign-in/sign-in.component';
+
+import { CustomerListComponent } from './customer-list/customer-list.component';
+
 
 
 
@@ -33,7 +37,9 @@ import { SignInComponent } from './sign-in/sign-in.component';
     CustomerProfileComponent,
     AccountDetailsComponent,
     TestComponent,
-    SignInComponent
+    SignInComponent,
+    CustomerListComponent
+
 
   ],
   imports: [

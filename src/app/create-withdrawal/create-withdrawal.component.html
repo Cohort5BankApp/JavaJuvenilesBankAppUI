@@ -1,3 +1,90 @@
-<p>
-  create-withdrawal works!
-</p>
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group col-md-6" *ngIf="button">
+    <label for="type">ID</label>
+    <input type="text" [(ngModel)]="withdrawal.id" class="form-control" id="type" placeholder="Type of withdrawal"
+      [ngModelOptions]="{standalone: true}">
+  </div>
+  <!-- <div class="form-group col-md-6">
+    <label for="type">Type</label>
+    <input type="text" [(ngModel)]="withdrawal.type" class="form-control" id="type" placeholder="Type of withdrawal"
+      [ngModelOptions]="{standalone: true}">
+  </div> -->
+  <div class="form-group col-md-6">
+    <label for="type">Type of withdrawal</label>
+    <br>
+    <input type="radio" [(ngModel)]="withdrawal.type" id="type" value="p2p" [ngModelOptions]="{standalone: true}">
+    <label for="p2p">p2p</label>
+    <br>
+    <input type="radio" [(ngModel)]="withdrawal.type" id="type" value="deposit" [ngModelOptions]="{standalone: true}">
+    <label for="deposit">Deposit</label>
+    <br>
+    <input type="radio" [(ngModel)]="withdrawal.type" id="type" value="withdrawal" [ngModelOptions]="{standalone: true}">
+    <label for="withdrawal">Withdrawal</label>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="transaction_date">Transaction Date</label>
+    <input type="text" [(ngModel)]="withdrawal.transaction_date" class="form-control" id="transactionDate"
+      placeholder="Transaction date" [ngModelOptions]="{standalone: true}">
+  </div>
+  <!-- <div class="form-group col-md-6">
+    <label for="status">Status</label>
+    <input type="text" [(ngModel)]="withdrawal.status" class="form-control" id="status" placeholder="Another input"
+      [ngModelOptions]="{standalone: true}">
+  </div> -->
+  <div class="form-group col-md-6">
+    <label for="status">Status</label>
+    <br>
+    <input type="radio" [(ngModel)]="withdrawal.status" id="status" value="pending" [ngModelOptions]="{standalone: true}">
+    <label for="pending">Pending</label>
+    <br>
+    <input type="radio" [(ngModel)]="withdrawal.status" id="status" value="cancelled"
+      [ngModelOptions]="{standalone: true}">
+    <label for="cancelled">Cancelled</label>
+    <br>
+    <input type="radio" [(ngModel)]="withdrawal.status" id="status" value="completed"
+      [ngModelOptions]="{standalone: true}">
+    <label for="completed">Completed</label>
+    <br>
+    <input type="radio" [(ngModel)]="withdrawal.status" id="status" value="recurring"
+      [ngModelOptions]="{standalone: true}">
+    <label for="recurring">Recurring</label>
+  </div>
+  <!-- <div class="form-group col-md-6">
+    <label for="payee_id">Account Id</label>
+    <input type="text" [(ngModel)]="withdrawal.account_id" class="form-control" id="payeeId" placeholder="ID of account"
+      [ngModelOptions]="{standalone: true}">
+  </div> -->
+  <!-- <div class="form-group col-md-6">
+    <label for="medium">Medium</label>
+    <input type="text" [(ngModel)]="withdrawal.medium" class="form-control" id="medium" placeholder="Another input"
+      [ngModelOptions]="{standalone: true}">
+  </div> -->
+  <div class="form-group col-md-6">
+    <label for="medium">Medium</label>
+    <br>
+    <input type="radio" [(ngModel)]="withdrawal.medium" id="medium" value="balance" [ngModelOptions]="{standalone: true}">
+    <label for="balance">Balance</label>
+    <br>
+    <input type="radio" [(ngModel)]="withdrawal.medium" id="medium" value="rewards" [ngModelOptions]="{standalone: true}">
+    <label for="rewards">Rewards</label>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="amount">Amount</label>
+    <input type="text" [(ngModel)]="withdrawal.amount" class="form-control" id="amount" placeholder="Amount of withdrawal"
+      [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="description">Description</label>
+    <input type="text" [(ngModel)]="withdrawal.description" class="form-control" id="description"
+      placeholder="Description of withdrawal" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group col-md-6">
+    <button type="submit" class="btn btn-info" *ngIf="!button" (click)="save()">Submit</button>
+  </div>
+  <div class="form-group col-md-6">
+    <button type="submit" class="btn btn-info" *ngIf="button" (click)="update()">Update</button>
+  </div>
+  <div class="form-group col-md-6">
+    <button type="submit" class="btn btn-info" *ngIf="button" (click)="delete()">Delete</button>
+  </div>
+</form>

@@ -7,31 +7,35 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BillService {
+private billUrl: string;
 
-  private billUrl: string;
+  // private billUrl: string;
+  
+  
+
 
   constructor(private http: HttpClient) { 
-    this.billUrl = 'http://localhost:8080/bills/';
+    this.billUrl = `http://localhost:8080`;
   } 
 
   public findAll(): Observable<Bill[]>{
-    return this.http.get<Bill[]>(this.billUrl);
+    return this.http.get<Bill[]>(this.billUrl + "");
   }
 
   public find(id: number){
-    return this.http.get(this.billUrl + id);
+    return this.http.get(this.billUrl + id + '/bills');
   }
 
   // Cant create without an id
-  public create(bill: Bill): Observable<Bill>{
-    return this.http.post<Bill>(this.billUrl, bill);
+  public create(bill: Bill, accountId: number): Observable<Bill>{
+    return this.http.post<Bill>(this.billUrl + '/accounts/'+ accountId + '/bills' , bill);
   }
 
   public delete(id: number): Observable<any>{
-    return this.http.delete<Bill>(this.billUrl + id);
+    return this.http.delete<Bill>(`http://localhost:8080/bills/` + id);
   }
 
-  public update(id: number, value: any){
-    return this.http.put(this.billUrl + id, value);
+  public update(id: number, value: any, account_id){
+    return this.http.put(`http://localhost:8080/accounts/${account_id}/bills/` + id, value);
   }
 }
