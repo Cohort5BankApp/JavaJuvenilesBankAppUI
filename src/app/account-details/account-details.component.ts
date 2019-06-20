@@ -32,8 +32,7 @@ export class AccountDetailsComponent implements OnInit {
   ngOnInit() {
     let url = window.location.href;
     let p = url.split("/")
-    this.customer_id = +p[3];
-    this.account_id = +p[5];
+    this.account_id = +p[4];
     this.accountService.getBills(this.account_id).subscribe(list => {
       this.bill =list.data;
     });

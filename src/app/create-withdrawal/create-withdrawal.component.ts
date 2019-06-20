@@ -3,6 +3,7 @@ import { WithdrawalService } from 'src/services/withdraw.service';
 import { Withdrawal } from 'src/models/Withdraw';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AccountService } from 'src/services/account.service';
 
 @Component({
   selector: 'app-create-withdrawal',
@@ -18,19 +19,26 @@ export class CreateWithdrawalComponent implements OnInit {
   withdrawalLink: any[];
   url: string = window.location.href;
   withdrawalId: any;
+  custId:number;
 
-  constructor(private route: ActivatedRoute, private router: Router, private withdrawalService: WithdrawalService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private withdrawalService: WithdrawalService, private accountService:AccountService) { }
 
   delete() {
     return this.withdrawalService.delete(this.withdrawal.id).subscribe(data => {
       this.gotoAccountDetails();
     });
   }
+  getOwner(){
+    this.accountService.getOwner(this.withdrawal.account_id).subscribe(result =>{
+      console.log(result)
+      this.custId = result.data
+    })
+  }
 
   save() {
-    return this.withdrawalService.save(this.withdrawal, this.withdrawal.account_id).subscribe(data => {
-      this.gotoAccountDetails();
-    });
+    this.getOwner();
+    this.withdrawalService.save(this.withdrawal, this.withdrawal.account_id).subscribe();
+
   }
 
   update() {
@@ -51,6 +59,7 @@ export class CreateWithdrawalComponent implements OnInit {
     console.log(this.button);
     this.withdrawalLink = this.url.split('/');
     this.withdrawalId = this.withdrawalLink[3];
+    console.log(this.withdrawalLink)
     this.withdrawal.account_id = this.withdrawalId;
     console.log(this.withdrawalLink);
     console.log(this.withdrawal);
