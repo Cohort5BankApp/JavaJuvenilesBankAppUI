@@ -1,44 +1,52 @@
 <div class="card my-5">
   <div class="card-body col-md-8">
-    <form (ngSubmit)="onSubmit()">
-        <div class="form-group" *ngIf="update">
-            <label for="account_id">Account ID</label>
-            <input type="text" id="account_id" [(ngModel)]="accounts.account_id"  class="form-control" name="account_id"
-            placeholder="Enter your account_id for this account">
-          </div>
+    <form>
+      <div class="form-group">
+          <label for="account_id">Account ID</label>
+          <input type="text" id="account_id" [(ngModel)]="accounts.account_id"  class="form-control" name="account_id"
+          placeholder="Enter your account_id for this account">
+      </div>
+
       <div class="form-group">
         <label for="nickname">Nickname</label>
         <input type="text" id="nickname" [(ngModel)]="accounts.nickname"  class="form-control" name="nickname"
         placeholder="Enter your nickname for this account">
       </div>
+
       <div class="form-group">
         <label for="rewards">Rewards</label>
         <input type="number" id="rewards" name="rewards" [(ngModel)]="accounts.rewards" class="form-control"
         placeholder="Enter your rewards for this account" >
       </div>
+
       <div class="form-group">
           <label for="balance">Balance</label>
           <input type="number" id="balance" name="balance" [(ngModel)]="accounts.balance" class="form-control"
           placeholder="Enter your balance for this account">
-        </div>
-        <div class="form-group">
-            <label for="customer_id">Customer Id</label>
-            <input type="number" id="customer_id" name="customer_id" [(ngModel)]="accounts.customer_id" class="form-control"
-            placeholder="Enter your customer id for this account">
-          </div>
-          <div class="form-group">
-              <label for="type">Type of account</label>
-              <input type="radio" [(ngModel)]="accounts.type"  id="type" value="Checking" name="type"
-              placeholder="Enter your type for this account" required #name="ngModel">
-              <label for="Checking">Checking</label>
-              <input type="radio" [(ngModel)]="accounts.type" id="type" value="Savings" name="type">
-              <label for="Savings">Savings</label>
-              <input type="radio" [(ngModel)]="accounts.type" id="type" value="Credit" name="type">
-              <label for="Credit">Credit</label>
-            </div>
-            <button type="submit" class="btn btn-info" *ngIf="!update">Submit</button>
-            <button type="submit" class="btn btn-info" *ngIf="update" (click)="updateM()">Update</button>
-            <button type="submit" class="btn btn-info" *ngIf="update" (click)="delete()">Delete</button>
+      </div>
+
+      <div class="form-group">
+          <label for="customer_id">Customer Id</label>
+          <input type="number" id="customer_id" name="customer_id" [(ngModel)]="accounts.customer_id" class="form-control"
+          placeholder="Enter your customer id for this account">
+      </div>
+
+      <div class="form-group">
+        <label for="type">Type of account</label><br>
+
+        <input type="radio" [(ngModel)]="accounts.type"  id="type" value="Checking" name="type">
+        <label for="Checking">Checking</label>
+        
+        <input type="radio" [(ngModel)]="accounts.type" id="type" value="Savings" name="type">
+        <label for="Savings">Savings</label>
+        
+        <input type="radio" [(ngModel)]="accounts.type" id="type" value="Credit" name="type">
+        <label for="Credit">Credit</label>
+      </div>
+
+        <button type="submit" class="btn btn-info" (click)="onSubmit()">Submit</button>
+        <button type="submit" class="btn btn-info" (click)="updateM()">Update</button>
+        <button type="submit" class="btn btn-info" (click)="delete()">Delete</button>
     </form>
   </div>
 </div>

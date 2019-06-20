@@ -10,8 +10,8 @@ import { AccountDetailsComponent } from 'src/app/account-details/account-details
 import { TestComponent } from '../test/test.component';
 
 const routes: Routes = [
-// {path: ':customer_id/create-account', component: CreateAccountComponent},
-// {path: ':account_id/update-account', component: CreateAccountComponent},
+{path: ':customer_id/create-account', component: CreateAccountComponent},
+{path: ':account_id/update-account', component: CreateAccountComponent},
 // {path: ':account_id/create-bill', component: CreateBillComponent},
 // {path: ':account_id/update-bill', component: CreateBillComponent},
 // {path: ':account_id/create-withdrawal', component: CreateWithdrawalComponent},
