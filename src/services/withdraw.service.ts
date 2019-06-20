@@ -12,15 +12,15 @@ export class WithdrawalService {
   private withdrawalUrl: string;
 
   constructor(private http: HttpClient) {
-    this.withdrawalUrl = 'http://localhost:8080/withdrawal/';
+    this.withdrawalUrl = 'http://localhost:8080/';
   }
 
 //   public findAll(): Observable<Withdrawal[]> {
 //     return this.http.get<Withdrawal[]>(this.withdrawalUrl);
 //   }
 // error with the Endpoint to save a withdraw, Should be /accounts/{accountId}/withdrawals
-  public save(withdrawal: Withdrawal): Observable<Withdrawal> {
-    return this.http.post<Withdrawal>(this.withdrawalUrl, withdrawal);
+  public save(withdrawal: Withdrawal, id: number): Observable<Withdrawal> {
+    return this.http.post<Withdrawal>(this.withdrawalUrl + '/accounts/' + id + '/withdrawals/', withdrawal);
   }
 
   public delete(id: number): Observable<any> {

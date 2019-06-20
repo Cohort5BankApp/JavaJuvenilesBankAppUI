@@ -33,4 +33,8 @@ export class CustomerListComponent implements OnInit {
     console.log(this.customers);
   }
 
+  Click(id: number) {
+    this.router.navigate([`${id}/profile`]);
+  }
+
 }
