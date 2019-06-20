@@ -44,7 +44,7 @@ return this.billService.delete(this.bills.id).subscribe(result => {
 }
 
 gotoAccountDetails() {
-this.router.navigate([this.customer.customer_id+ '/accounts/'+ this.bills.account_id]);
+this.router.navigate([this.bills.id+ '/accounts/'+ this.bills.account_id]);
 }
 
 ngOnInit() {
