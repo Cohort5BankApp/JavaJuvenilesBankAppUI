@@ -5,6 +5,8 @@ import { BillService } from '../../services/bill.service';
 import { Subscription } from 'rxjs';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CustomerService } from '../../services/customer.service';
+import { Customer } from '../../models/Customer';
 
 @Component({
   selector: 'app-create-bill',
@@ -13,10 +15,15 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class CreateBillComponent implements OnInit {
+billLink: any[];
+url: string = window.location.href;
+billId: any;
+customer : Customer;
 
   type:string[] =["Savings","Checking","Credit"];
   Bill:Bill;
-  bills: Bill = {id: 0, type: '', payee: '', nickname: '', creation_date: '', payment_date: '', recurring_date: '', upcoming_payment_date: '', payment_amount: '', account_id: 0}; 
+
+  bills: Bill = {id: 0, status: '', payee: '', nickname: '', creation_date: '', payment_date: '', recurring_date: 0, upcoming_payment_date: '', payment_amount: 0, account_id: 0}; 
   sub: Subscription;
 
   constructor(private route: ActivatedRoute, private router: Router, private billService: BillService){
@@ -24,8 +31,10 @@ export class CreateBillComponent implements OnInit {
 
 
 onSubmit() {
-return this.billService.create(this.bills, 1).subscribe(result => {
+  
+return this.billService.create(this.bills, this.bills.account_id ).subscribe(result => {
   this.gotoAccountDetails();
+  console.log(this.Bill)
 });
 }
 
@@ -36,22 +45,15 @@ return this.billService.delete(this.bills.id).subscribe(result => {
 }
 
 gotoAccountDetails() {
-this.router.navigate(['/accounts']);
+this.router.navigate([this.bills.id+ '/accounts/'+ this.bills.account_id]);
 }
 
 ngOnInit() {
-this.sub = this.route.params.subscribe(params => {
-  const id = params['id'];
-  if(id){
-    this.billService.find(id).subscribe((bill: Bill) => {
-      if (bill) {
-        this.bills = bill;
-      } else {
-        console.log(`Bill not found with id, '${id}' returning to details`);
-        this.gotoAccountDetails();
-      }
-    });
-  }
-});
+this.billLink = this.url.split('/');
+console.log(this.billLink);
+this.billId = this.billLink[3];
+this.bills.account_id = this.billId;
+console.log(this.bills)
+
 }
 }
