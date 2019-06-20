@@ -12,9 +12,10 @@ import { Observable } from 'rxjs';
 })
 export class CustomerListComponent implements OnInit {
 
-  customer: Customer = {id: 0, first_name: '', last_name: '', address: {
-    address_id: 0, street_number: '', street_name: '', city: '', state: '', zip: ''}};
+  // customer: Customer = {id: 0, first_name: '', last_name: '', addresses: { 
+  //   address_id: 0, street_number: '', street_name: '', city: '', state: '', zip: ''}};
 
+  customer:Customer = new Customer();
   customers: Observable<Customer[]>;
   address: Observable<Address[]>;
 
