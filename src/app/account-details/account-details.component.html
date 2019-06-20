@@ -1,1 +1,96 @@
-
+   <button></button>
+   
+   <h1 class="Display-Name">Bills</h1>
+   <div class="card my-5">
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Bill ID</th>
+              <th scope="col">Status</th>
+              <th scope="col">Payee</th>
+              <th scope="col">Nickname</th>
+              <th scope="col">Creation Date</th>
+              <th scope="col">Payment Date</th>
+              <th scope="col">Reacurring Date</th>
+              <th scope="col">Upcoming Payment Date</th>
+              <th scope="col">Payment Amount</th>
+              <!-- <th scope="col">Account Id</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bills of bill">
+              <td>{{ bills.id }}</td>
+              <!-- <td><a [routerLink]="['/:customer-id/profile', customer.id]">{{ customer.first_name }}</a></td> -->
+              <td>{{ bills.status }}</td>
+              <td>{{ bills.payee }}</td>
+              <td>{{ bills.nickname }}</td>
+              <td>{{ bills.creation_date }}</td>
+              <td>{{ bills.payment_date }}</td>
+              <td>{{ bills.recurring_date }}</td>
+              <td>{{ bills.upcoming_payment_date }}</td>
+              <td>{{ bills.payment_amount }}</td>
+              <!-- <td>{{ bills.account_id}}</td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h1 class="Display-Name">Deposits</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Deposit ID</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Transaction Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Account ID</th>
+                    <th scope="col">Medium</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor= "let deposi of deposit">
+                    <td>{{deposi.id}}</td>
+                    <td>{{deposi.type}}</td>
+                    <td>{{deposi.transaction_date}}</td>
+                    <td>{{deposi.status}}</td>
+                    <td>{{deposi.account_id}}</td>
+                    <td>{{deposi.medium}}</td>
+                    <td>{{deposi.amount}}</td>
+                    <td>{{deposi.description}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h1 class="Display-Name">Withdrawals</h1>
+    <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Withdraw Id</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Transaction Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Account Id</th>
+                        <th scope="col">Medium</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let withd of withdraw">
+                        <td>{{withd.id}}</td>
+                        <td>{{withd.type}}</td>
+                        <td>{{withd.transaction_date}}</td>
+                        <td>{{withd.status}}</td>
+                        <td>{{withd.account_id}}</td>
+                        <td>{{withd.medium}}</td>
+                        <td>{{withd.amount}}</td>
+                        <td>{{withd.description}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>

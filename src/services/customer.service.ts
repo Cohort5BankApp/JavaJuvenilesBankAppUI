@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
 
-  constructor(private customer:Customer,private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient) { }
 
   public API = 'http://localhost:8080/customers/';
 
@@ -17,7 +17,7 @@ export class CustomerService {
     return this.httpClient.post(this.API, customer);
   }
   //getAll /customers
-  getAll(): Observable<Customer[]>{
+  getAll(): Observable<any>{
     return this.httpClient.get<Customer[]>(this.API)
   }
   //getCustomerById /customers/{id}
@@ -26,8 +26,8 @@ export class CustomerService {
   }
   //update /customers/{id}
   // Update needs an object 
-  update(id:number){
-    return this.httpClient.put(this.API + id, this.customer.id)
+  update(id:number,customer:Customer){
+    return this.httpClient.put(this.API + id, customer)
   }
   //getBillsByCustomer /customers/{id}/bills
   getBills(id:number){
