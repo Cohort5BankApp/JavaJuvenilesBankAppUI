@@ -39,7 +39,7 @@ export class CustomerService {
   }
 
   //getAccountByCustomer /customers/{id}/accounts
-  getAccountByCustomer(id:number){
+  getAccountByCustomer(id:number):Observable<any>{
     return this.httpClient.get(this.API + id + '/accounts')
 
   }

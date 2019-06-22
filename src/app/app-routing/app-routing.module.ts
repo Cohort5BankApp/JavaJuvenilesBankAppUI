@@ -12,7 +12,7 @@ import { CustomerListComponent } from '../customer-list/customer-list.component'
 
 const routes: Routes = [
 {path: ':customer_id/create-account', component: CreateAccountComponent},
-{path: ':account_id/update-account', component: CreateAccountComponent},
+{path: ':customer_id/update-account/:account_id', component: CreateAccountComponent},
 {path: ':account_id/create-bill', component: CreateBillComponent},
 {path: ':account_id/update-bill/:id', component: CreateBillComponent},
 {path: ':account_id/create-withdrawal', component: CreateWithdrawalComponent},
