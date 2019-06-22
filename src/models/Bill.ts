@@ -1,7 +1,7 @@
 export class Bill{
 
     id : number;
-    type : string;
+    status : string;
     payee : string;
     nickname : string;
     creation_date : string;

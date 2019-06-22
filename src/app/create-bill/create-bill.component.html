@@ -1,33 +1,65 @@
-<h1>Bill</h1>
+<div class="card my-5">
+    <div class="card-body col-md-8">
+    <h1>Bill</h1>
+    <form (ngSubmit)="onSubmit()"> 
+    <div class="status-group">
+        <!-- <label for="type">Status of Bill</label> -->
+        <h3>Status of Bill</h3>
+        <input type="radio" [(ngModel)]="bills.type"  id="type" value="Pending" name="type" [ngModelOptions]="{standalone: true}">
+        <label for="Pending">Pending</label>
 
-<form>
+        <input type="radio" [(ngModel)]="bills.type" id="type" value="Canceled" name="type" [ngModelOptions]="{standalone: true}">
+        <label for="Savings">Canceled</label>
+
+        <input type="radio" [(ngModel)]="bills.type" id="type" value="Complete" name="type" [ngModelOptions]="{standalone: true}">
+        <label for="Credit">Complete</label>
+
+        <input type="radio" [(ngModel)]="bills.type" id="type" value="Reccuring" name="type" [ngModelOptions]="{standalone: true}">
+        <label for="Reccuring">Reccuring</label>
+      </div> 
+
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputAccount4">accountID</label>
-      <input type="ID" class="form-control" id="inputAccount4" placeholder="ID">
+    <div class="form-group">
+    <label for="account_id">AccountID</label>
+    <input type="number" class="form-control" [(ngModel)]="bills.account_id" id="account_id" placeholder="ID" [ngModelOptions]="{standalone: true}">
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputPayee4">Payee</label>
-      <input type="text" class="form-control" id="inputPayee4" placeholder="Payee">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputCreationDate">Creation Date</label>
-    <input type="text" class="form-control" id="inputCreationDate" placeholder="Creation Date">
-  </div>
-  <div class="form-group">
-    <label for="inputDate">Payment Date</label>
-    <input type="text" class="form-control" id="inputDate" placeholder="Payment Date">
-  </div>
-  <div class="form-group">
-    <label for="inputRecurringDate">Recurring Date</label>
-    <input type="text" class="form-control" id="inputRecurringDate" placeholder="Recurring Date">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputAmount">Amount</label>
-      <input type="ID" class="form-control" id="inputAmount" placeholder="Amount">
+      <div class="form-group">
+      <label for="Nickname">Nickname</label>
+      <input type="text" class="form-control" [(ngModel)]="bills.nickname" id="nickname" placeholder="Nickname" [ngModelOptions]="{standalone: true}">
+      </div>
+
+    <div class="form-group">
+    <label for="payee">Payee</label>
+    <input type="text" class="form-control" [(ngModel)]="bills.payee" id="payee" placeholder="Payee" [ngModelOptions]="{standalone: true}">
     </div>
   </div>
+
+  <div class="form-group">
+    <label for="creation_date">Creation Date</label>
+    <input type="text" class="form-control" [(ngModel)]="bills.creation_date" id="creation_date" placeholder="Creation Date" [ngModelOptions]="{standalone: true}">
+  </div>
+
+  <div class="form-group">
+    <label for="payment_date">Payment Date</label>
+    <input type="text" class="form-control" [(ngModel)]="bills.payment_date" id="payment_date" placeholder="Payment Date" [ngModelOptions]="{standalone: true}">
+  </div>
+
+  <div class="form-group">
+    <label for="recurring_date">Recurring Date</label>
+    <input type="text" class="form-control" [(ngModel)]="bills.recurring_date" id="recurring_date" placeholder="Recurring Date" [ngModelOptions]="{standalone: true}">
+  </div>
+
+    <div class="form-group">
+      <label for="upcoming_payment_date">Upcoming Payment Date</label>
+      <input type="text" class="form-control" [(ngModel)]="bills.upcoming_payment_date" id="upcoming_payment_date" placeholder="Amount" [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div class="form-group">
+      <label for="payment_amount">Payment Amount</label>
+      <input type="text" class="form-control" [(ngModel)]="bills.payment_amount " id="amount" placeholder="Amount" [ngModelOptions]="{standalone: true}">
+    </div>
+
     <button type="submit" class="btn btn-primary">Submit Bill</button>
 </form>
+    </div>
+  </div>

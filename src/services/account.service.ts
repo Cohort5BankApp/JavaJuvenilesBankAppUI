@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Message } from 'src/models/Message';
 
 @Injectable({providedIn: 'root'})
 export class AccountService {
@@ -24,7 +25,7 @@ export class AccountService {
   //create an account method
 
   save(account: Object, customer_id: number): Observable<Object>{
-    return this.http.post(`http://localhost:8080/customers/${customer_id}/accounts`, account)
+    return this.http.post(`http://localhost:8080/customers/${customer_id}/accounts`, account);
   }
 
   //get an account owner method
