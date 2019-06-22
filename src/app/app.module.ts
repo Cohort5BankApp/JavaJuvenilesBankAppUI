@@ -17,19 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms'; 
 import { TestComponent } from './test/test.component';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { SignInComponent } from './sign-in/sign-in.component';
-=======
-import { CustomerListComponent } from './customer-list/customer-list.component';
->>>>>>> 6a332dc8f657fa942ae6d42ed3d2ba0e7c387fa1
-=======
-
-import { SignInComponent } from './sign-in/sign-in.component';
 
 import { CustomerListComponent } from './customer-list/customer-list.component';
-
->>>>>>> 14f2eee19fd7b8bf5caad47f0338c97e4df20da3
 
 
 
@@ -45,17 +34,9 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     CustomerProfileComponent,
     AccountDetailsComponent,
     TestComponent,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    SignInComponent
-=======
-    CustomerListComponent
->>>>>>> 6a332dc8f657fa942ae6d42ed3d2ba0e7c387fa1
-=======
-    SignInComponent,
     CustomerListComponent
 
->>>>>>> 14f2eee19fd7b8bf5caad47f0338c97e4df20da3
+
 
   ],
   imports: [
