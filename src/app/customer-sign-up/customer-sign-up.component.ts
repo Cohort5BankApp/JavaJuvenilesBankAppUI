@@ -32,7 +32,6 @@ sub: Subscription;
   }
 
   onSubmit(){
-    console.log(this.customer);
     this.addresses = [this.address];
     this.customer.addresses = this.addresses;
 this.customerService.create(this.customer).subscribe(result => {this.goToCustomerProfile()});
