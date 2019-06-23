@@ -1,28 +1,30 @@
 <div class="card my-5">
     <div class="card-body col-md-8">
-    <h1>Bill</h1>
+    
     <form (ngSubmit)="onSubmit()"> 
-    <div class="status-group">
+        <h1>{{ bills.id ? 'Edit Your Bill' : 'Make a bill' }}</h1>
+    <!-- <div class="status-group"> -->
         <!-- <label for="type">Status of Bill</label> -->
-        <h3>Status of Bill</h3>
-        <input type="radio" [(ngModel)]="bills.type"  id="type" value="Pending" name="type" [ngModelOptions]="{standalone: true}">
-        <label for="Pending">Pending</label>
+        <!-- <h3>Status of Bill</h3>
+        <input type="radio" [(ngModel)]="bills.type"  id="type" value="pending" name="type" [ngModelOptions]="{standalone: true}">
+        <label for="pending">pending</label>
 
-        <input type="radio" [(ngModel)]="bills.type" id="type" value="Canceled" name="type" [ngModelOptions]="{standalone: true}">
-        <label for="Savings">Canceled</label>
+        <input type="radio" [(ngModel)]="bills.type" id="type" value="canceled" name="type" [ngModelOptions]="{standalone: true}">
+        <label for="savings">canceled</label>
 
-        <input type="radio" [(ngModel)]="bills.type" id="type" value="Complete" name="type" [ngModelOptions]="{standalone: true}">
-        <label for="Credit">Complete</label>
+        <input type="radio" [(ngModel)]="bills.type" id="type" value="complete" name="type" [ngModelOptions]="{standalone: true}">
+        <label for="credit">complete</label>
 
-        <input type="radio" [(ngModel)]="bills.type" id="type" value="Reccuring" name="type" [ngModelOptions]="{standalone: true}">
-        <label for="Reccuring">Reccuring</label>
-      </div> 
+        <input type="radio" [(ngModel)]="bills.type" id="type" value="reccuring" name="type" [ngModelOptions]="{standalone: true}">
+        <label for="reccuring">reccuring</label>
+      </div>  -->
 
   <div class="form-row">
-    <div class="form-group">
-    <label for="account_id">AccountID</label>
-    <input type="number" class="form-control" [(ngModel)]="bills.account_id" id="account_id" placeholder="ID" [ngModelOptions]="{standalone: true}">
-    </div>
+      <div class="form-group">
+          <label for="status">status</label>
+          <input type="text" class="form-control" [(ngModel)]="bills.status" id="status" placeholder="Ex: pending, cancelled, completed, recurring" [ngModelOptions]="{standalone: true}">
+          </div>
+
       <div class="form-group">
       <label for="Nickname">Nickname</label>
       <input type="text" class="form-control" [(ngModel)]="bills.nickname" id="nickname" placeholder="Nickname" [ngModelOptions]="{standalone: true}">
@@ -60,6 +62,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Submit Bill</button>
+    <button type="update" class="btn btn-primary">Update Bill</button>
 </form>
     </div>
   </div>
