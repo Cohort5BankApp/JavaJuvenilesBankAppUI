@@ -39,7 +39,11 @@ return this.billService.create(this.bills, this.bills.account_id ).subscribe(res
   console.log(this.Bill)
 });
 }
-
+update(){
+  this.billService.update(this.bills.account_id, this.bills).subscribe(result =>{
+    this.gotoAccountDetails();
+  })
+}
 delete() {
 return this.billService.delete(this.bills.id).subscribe(result => {
   this.gotoAccountDetails();

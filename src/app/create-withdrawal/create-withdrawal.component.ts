@@ -49,7 +49,7 @@ export class CreateWithdrawalComponent implements OnInit {
   }
 
   gotoAccountDetails() {
-    this.router.navigate([`${this.withdrawalId}/accounts/${this.withdrawal.account_id}`]);
+    this.router.navigate([`/accounts/${this.withdrawal.account_id}`]);
   }
 
   onSubmit() {
