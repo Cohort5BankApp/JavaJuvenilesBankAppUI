@@ -18,23 +18,6 @@ private billUrl: string;
   }
 
   public find(id: number){
-    return this.http.get(this.api + id);
-  }
-
-  // Cant create without an id
-  public create(bill: Bill, account_id: number): Observable<Bill>{
-    return this.http.post<Bill>(this.api + `/accounts/${account_id}/bills/`, bill);
-
-  
-  
-
-
-  constructor(private http: HttpClient) { 
- 
-  } 
-
-
-  public find(id: number){
     return this.http.get(this.api + '/bills' + id);
   }
 
