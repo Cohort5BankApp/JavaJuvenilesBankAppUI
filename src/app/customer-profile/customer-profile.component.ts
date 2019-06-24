@@ -13,7 +13,7 @@ export class CustomerProfileComponent implements OnInit {
 
   accounts: Account[];
   message: Message;
-  customer: Customer = {id: 0, first_name: '', last_name: '', address: {address_id:0, street_number: '', street_name: '', city: '', state:'', zip:''}};
+  customer: Customer = {id: 0, first_name: '', last_name: '', address: [{address_id:0, street_number: '', street_name: '', city: '', state:'', zip:''}]};
   constructor(
     private customerService: CustomerService, 
     private router: Router, 
