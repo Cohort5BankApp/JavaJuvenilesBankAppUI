@@ -3,7 +3,7 @@ import { CustomerService } from '../../services/customer.service';
 import { Subscription, Observable } from 'rxjs';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { Customer } from 'src/models/Customer';
-import { AccountService } from 'src/services/account.service';
+import { Message } from 'src/models/Message';
 import { Account } from 'src/models/Account';
 
 @Component({
@@ -12,32 +12,32 @@ import { Account } from 'src/models/Account';
   styleUrls: ['./customer-profile.component.css']
 })
 export class CustomerProfileComponent implements OnInit {
+
+  accounts: Account[];
+  message: Message;
+  customer: Customer = {id: 0, first_name: '', last_name: '', address: [{address_id:0, street_number: '', street_name: '', city: '', state:'', zip:''}]};
+  constructor(
+    private customerService: CustomerService, 
+    private router: Router, 
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit() {
+    const customer_id = this.route.snapshot.paramMap.get('customer_id');
+    const id = +customer_id;
+    this.customerService.getById(id).subscribe(data => { 
+      data = <Message>data;
+      this.customer = <Customer>data.data;
+      
+      console.log(this.customer);
+    });
+    this.customerService.getAccount(id).subscribe(data =>{ 
+      data = <Message>data;
+      this.accounts = <Account[]>data.data;
+      console.log(JSON.stringify(this.accounts));
   
-customerid:number;
-accounts:Observable<Account[]>;
-
-  constructor(private customerService:CustomerService, private router:Router){
+    });
   }
 
-ngOnInit(){
-  let url= window.location.href;
-  let urlSplit= url.split('/');
-  let splitUrl = urlSplit[3];
-  this.customerid = +splitUrl;
-
-  this.customerService.getAccountByCustomer(this.customerid).subscribe(list => {
-    this.accounts = list.data;
-  })
-  }
-  createAccount(){
-    this.router.navigate([this.customerid + '/create-account'])
-  }
-  updateAccount(id:number){
-    this.router.navigate([this.customerid + '/update-account/' +id])
-  }
-  goToProfile(id:number){
-    this.router.navigate(['/accounts/'+ id]);
-  }
 }
-
 
