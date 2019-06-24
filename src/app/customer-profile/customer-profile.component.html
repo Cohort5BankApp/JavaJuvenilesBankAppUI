@@ -1,36 +1,27 @@
-<div class="customer-details"> 
-  <ul>
-    <li>{{ customer.first_name }} {{ customer.last_name }}</li>
-    
-  </ul>
-</div>
-
-<div class="card-body">
-<table class="table table-bordered table-striped" >
-    <thead class="thead-dark">
-      <th>View</th>
-      <th>Nickname</th>
-      <th>Balance</th>
-      <th>Type</th>
-      <th>Rewards</th>
-      <th>Edit</th>
-    </thead>
-    <tr *ngFor = "let account of accounts">
-   <td ><button [routerLink] = "['/accounts', account.account_id]"> Click to View </button><br> </td>
-   
-  <td>{{ account.nickname}}</td>
-  
-    <td style="font-size: 12px">{{ account.balance }}</td>
-    
- 
-    <td> {{ account.type }}</td>
-    
-    <td> {{account.rewards }}</td>
-    <td><button>Edit</button></td>
-
-  </tr>
-</table>
-
-<button [routerLink]= "[customer.id, '/create-account']">Add</button>
-
-</div>
+<button (click)='createAccount()'>Create Account</button>
+<h1 class="Display-Name">Accounts</h1>
+   <div class="card my-5">
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Account Id</th>
+              <th scope="col">Nickname</th>
+              <th scope="col">Rewards</th>
+              <th scope="col">Balance</th>
+              <th scope="col">Customer Id</th>
+              <th scope="col">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let account of accounts">
+              <td><a (click)="updateAccount(account.account_id)">{{ account.account_id }}</a></td>
+              <td><a (click)="goToProfile(account.account_id)">{{ account.nickname }}</a></td>
+              <td>{{ account.rewards }}</td>
+              <td>{{ account.balance }}</td>
+              <td>{{ account.customer_id }}</td>
+              <td>{{ account.type }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
