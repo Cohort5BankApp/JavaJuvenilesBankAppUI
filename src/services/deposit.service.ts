@@ -13,10 +13,10 @@ export class DepositService {
   private depositId: string;
 
   constructor(private http: HttpClient) {
-    this.depositUrl ='http://localhost:8080';
+    this.depositUrl ='http://bankingapplicationspringboot-env-1.k2hcfmgmya.us-east-2.elasticbeanstalk.com';
    }
    public getOne(id: number){
-     return this.http.get(this.depositUrl +"/deposits/" + id);
+     return this.http.get(this.depositUrl + '/deposits/' + id);
    }
    public save(id: number, deposit: Deposit): Observable<Deposit> {
      return this.http.post<Deposit>(this.depositUrl + '/accounts/' + id + '/deposits/', deposit);

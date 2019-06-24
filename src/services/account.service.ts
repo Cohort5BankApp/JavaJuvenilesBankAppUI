@@ -5,7 +5,7 @@ import { Message } from 'src/models/Message';
 
 @Injectable({providedIn: 'root'})
 export class AccountService {
-  public_API = 'http://localhost:8080/accounts'
+  public_API = 'http://bankingapplicationspringboot-env-1.k2hcfmgmya.us-east-2.elasticbeanstalk.com'
 
   constructor(private http: HttpClient) { 
 
@@ -13,54 +13,54 @@ export class AccountService {
   // get account by id method
 
   get (id: number): Observable<any>{
-    return this.http.get(`http://localhost:8080/accounts/${id}`);
+    return this.http.get(this.public_API + `/accounts/${id}`);
   }
 
   //get all accounts method
 
   getAll(): Observable<any>{
-    return this.http.get(this.public_API);
+    return this.http.get(this.public_API + '/accounts/');
   }
 
   //create an account method
 
   save(account: Object, customer_id: number): Observable<Object>{
-    return this.http.post(`http://localhost:8080/customers/${customer_id}/accounts`, account);
+    return this.http.post(this.public_API + `/${customer_id}/accounts`, account);
   }
 
   //get an account owner method
 
   getOwner(id: number): Observable<any>{
-    return this.http.get(`http://localhost:8080/accounts/${id}/customer`);
+    return this.http.get(this.public_API + `/${id}/customer`);
   }
 
   //get bills by account method
 
   getBills(id: number): Observable<any>{
-    return this.http.get(`http://localhost:8080/accounts/${id}/bills`);
+    return this.http.get(this.public_API + `/${id}/bills`);
   }
 
   //get withdrawals by account method
 
   getWithdrawals(id: number): Observable<any>{
-    return this.http.get(`http://localhost:8080/accounts/${id}/withdrawals`);
+    return this.http.get(this.public_API + `/${id}/withdrawals`);
   }
 
   //get deposits by account method
   
   getDeposits(id: number): Observable<any>{
-    return this.http.get(`http://localhost:8080/accounts/${id}/deposits`);
+    return this.http.get(this.public_API + `/${id}/deposits`);
   }
 
   //update an account method
   
   update(id: number, value: any): Observable<Object> {
-    return this.http.put(`http://localhost:8080/accounts/${id}`, value);
+    return this.http.put(this.public_API + `/${id}`, value);
   }
 
   //delete an account method
 
   remove(id: number) {
-    return this.http.delete(`http://localhost:8080/accounts/${id}`);
+    return this.http.delete(this.public_API + `/accounts/${id}`);
   }
 }
