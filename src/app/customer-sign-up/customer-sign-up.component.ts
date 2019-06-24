@@ -12,15 +12,15 @@ import { Address } from 'src/models/Address';
   styleUrls: ['./customer-sign-up.component.css']
 })
 export class CustomerSignUpComponent implements OnInit {
-  address: Address = 
-    {
-    address_id:0, 
-    street_number: '', 
-    street_name: '', 
-    city: '', 
-    state: '', 
-    zip: ''
-};
+  address: Address = new Address();
+//     {
+//     address_id:0, 
+//     street_number: '', 
+//     street_name: '', 
+//     city: '', 
+//     state: '', 
+//     zip: ''
+// };
 addresses:Address[];
   customer: Customer = {id: 0, first_name: '', last_name: '', addresses: this.addresses};
 
@@ -40,7 +40,7 @@ this.customerService.create(this.customer).subscribe(result => {this.goToCustome
   
 
   goToCustomerProfile(){
-    this.router.navigate([':customer_id/profile'])
+    this.router.navigate(['/customers'])
   }
 
   ngOnInit() {

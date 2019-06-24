@@ -3,7 +3,10 @@
 
 <form #customerForm= "ngForm" (ngSubmit)="onSubmit()"> 
     <h2> {{ customer.id ? 'Edit Your Profile' : 'Customer Sign-Up' }} </h2>
-    
+    <!-- <div class="form-group">
+      <label>Customer Id</label>
+      <input [(ngModel)]="customer.id" class="form-control" required name="id" #id>
+    </div> -->
     <div class="form-group">
     <label> First Name </label>
     <input [(ngModel)]= "customer.first_name" class="form-control" required name="first_name" #firstName/>

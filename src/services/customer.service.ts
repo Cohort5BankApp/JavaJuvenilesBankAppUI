@@ -51,7 +51,7 @@ export class CustomerService {
 =======
 
   //getAccountByCustomer /customers/{id}/accounts
-  getAccountByCustomer(id:number){
+  getAccountByCustomer(id:number):Observable<any>{
     return this.httpClient.get(this.API + id + '/accounts')
 
 >>>>>>> abdb11cff04e2200dbd2afc85598bfbe39e5e53e
