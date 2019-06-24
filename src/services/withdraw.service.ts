@@ -32,6 +32,6 @@ export class WithdrawalService {
   }
 
   public update(id: number, withdrawal: Withdrawal) {
-    return this.http.put(this.withdrawalUrl + id, withdrawal);
+    return this.http.put(this.withdrawalUrl + 'withdrawals/' + id, withdrawal);
   }
 }

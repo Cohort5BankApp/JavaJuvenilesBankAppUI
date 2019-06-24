@@ -35,7 +35,7 @@ private billUrl: string;
     return this.http.delete<Bill>(`http://localhost:8080/bills/` + id);
   }
 
-  public update(id: number, value: any, account_id){
-    return this.http.put(`http://localhost:8080/accounts/${account_id}/bills/` + id, value);
+  public update(id: number, account_id:any){
+    return this.http.put("http://localhost:8080/bills/" + id, account_id);
   }
 }

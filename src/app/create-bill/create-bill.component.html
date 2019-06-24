@@ -3,27 +3,32 @@
     
     <form (ngSubmit)="onSubmit()"> 
         <h1>{{ bills.id ? 'Edit Your Bill' : 'Make a bill' }}</h1>
-    <!-- <div class="status-group"> -->
-        <!-- <label for="type">Status of Bill</label> -->
-        <!-- <h3>Status of Bill</h3>
+    <div class="status-group">
+
+      <div class="form-group">
+        <label for="Id">Bill ID</label>
+        <input type="number" class="form-control" [(ngModel)]="bills.id" id="id" placeholder="id" name="bill">
+      </div>
+
+        <h3>Status of Bill</h3>
         <input type="radio" [(ngModel)]="bills.type"  id="type" value="pending" name="type" [ngModelOptions]="{standalone: true}">
         <label for="pending">pending</label>
 
-        <input type="radio" [(ngModel)]="bills.type" id="type" value="canceled" name="type" [ngModelOptions]="{standalone: true}">
+        <input type="radio" [(ngModel)]="bills.status" id="type" value="canceled" name="type" [ngModelOptions]="{standalone: true}">
         <label for="savings">canceled</label>
 
-        <input type="radio" [(ngModel)]="bills.type" id="type" value="complete" name="type" [ngModelOptions]="{standalone: true}">
+        <input type="radio" [(ngModel)]="bills.status" id="type" value="complete" name="type" [ngModelOptions]="{standalone: true}">
         <label for="credit">complete</label>
 
-        <input type="radio" [(ngModel)]="bills.type" id="type" value="reccuring" name="type" [ngModelOptions]="{standalone: true}">
+        <input type="radio" [(ngModel)]="bills.status" id="type" value="reccuring" name="type" [ngModelOptions]="{standalone: true}">
         <label for="reccuring">reccuring</label>
-      </div>  -->
+      </div> 
 
-  <div class="form-row">
-      <div class="form-group">
+   <div class="form-row">
+      <!-- <div class="form-group">
           <label for="status">status</label>
           <input type="text" class="form-control" [(ngModel)]="bills.status" id="status" placeholder="Ex: pending, cancelled, completed, recurring" [ngModelOptions]="{standalone: true}">
-          </div>
+          </div> --> 
 
       <div class="form-group">
       <label for="Nickname">Nickname</label>
@@ -62,7 +67,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Submit Bill</button>
-    <button type="update" class="btn btn-primary">Update Bill</button>
+    <button type="submit" (click)="update()" class="btn btn-primary">Update Bill</button>
 </form>
     </div>
   </div>
