@@ -35,6 +35,9 @@ ngOnInit(){
   updateAccount(id:number){
     this.router.navigate([this.customerid + '/update-account/' +id])
   }
+  goToProfile(id:number){
+    this.router.navigate(['/accounts/'+ id]);
+  }
 }
 
 

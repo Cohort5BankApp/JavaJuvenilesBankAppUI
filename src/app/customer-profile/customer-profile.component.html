@@ -16,7 +16,7 @@
           <tbody>
             <tr *ngFor="let account of accounts">
               <td><a (click)="updateAccount(account.account_id)">{{ account.account_id }}</a></td>
-              <td>{{ account.nickname }}</td>
+              <td><a (click)="goToProfile(account.account_id)">{{ account.nickname }}</a></td>
               <td>{{ account.rewards }}</td>
               <td>{{ account.balance }}</td>
               <td>{{ account.customer_id }}</td>
