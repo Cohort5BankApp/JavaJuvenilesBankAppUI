@@ -1,3 +1,36 @@
-<p>
-  customer-profile works!
-</p>
+<div class="customer-details"> 
+  <ul>
+    <li>{{ customer.first_name }} {{ customer.last_name }}</li>
+    
+  </ul>
+</div>
+
+<div class="card-body">
+<table class="table table-bordered table-striped" >
+    <thead class="thead-dark">
+      <th>View</th>
+      <th>Nickname</th>
+      <th>Balance</th>
+      <th>Type</th>
+      <th>Rewards</th>
+      <th>Edit</th>
+    </thead>
+    <tr *ngFor = "let account of accounts">
+   <td ><button [routerLink] = "['/accounts', account.account_id]"> Click to View </button><br> </td>
+   
+  <td>{{ account.nickname}}</td>
+  
+    <td style="font-size: 12px">{{ account.balance }}</td>
+    
+ 
+    <td> {{ account.type }}</td>
+    
+    <td> {{account.rewards }}</td>
+    <td><button>Edit</button></td>
+
+  </tr>
+</table>
+
+<button [routerLink]= "[customer.id, '/create-account']">Add</button>
+
+</div>

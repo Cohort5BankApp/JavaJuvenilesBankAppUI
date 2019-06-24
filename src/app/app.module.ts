@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms'; 
 import { TestComponent } from './test/test.component';
+
 import { CustomerListComponent } from './customer-list/customer-list.component';
 
 
@@ -34,6 +35,8 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     AccountDetailsComponent,
     TestComponent,
     CustomerListComponent
+
+
 
   ],
   imports: [
