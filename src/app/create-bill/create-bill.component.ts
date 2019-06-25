@@ -33,14 +33,13 @@ billId: any;
  
 
 onSubmit() {
-  
 return this.billService.create(this.bills, this.bills.account_id ).subscribe(result => {
   this.gotoAccountDetails();
   console.log(this.Bill)
 });
 }
 update(){
-  this.billService.update(this.bills.account_id, this.bills).subscribe(result =>{
+  this.billService.update(this.bills.id, this.bills.account_id, this.bills).subscribe(result =>{
     this.gotoAccountDetails();
   })
 }

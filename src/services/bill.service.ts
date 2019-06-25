@@ -28,11 +28,11 @@ private billUrl: string;
   }
 
   public delete(id: number): Observable<any>{
-    return this.http.delete<Bill>(this.api + id);
+    return this.http.delete<Bill>(this.api + '/bills/' + id);
   }
 
 
-  public update(id: number, account_id:any){
-    return this.http.put(this.api +'/bills' + id, account_id);
+  public update(id: number, account_id:any,item:any){
+    return this.http.put(this.api +'/accounts/'+ account_id +'/bills/' + id, item);
   }
 }

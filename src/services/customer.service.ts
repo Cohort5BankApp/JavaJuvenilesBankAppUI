@@ -15,21 +15,13 @@ export class CustomerService {
   //public API = 'http://localhost:8080/customers/';
   public API = 'http://bankingapplicationspringboot-env-1.k2hcfmgmya.us-east-2.elasticbeanstalk.com'
 
-<<<<<<< HEAD
   // Create/customers
   create(customer: Customer) {
     return this.httpClient.post(this.API + '/customers', customer);
-=======
-
-  //Create /customers
-  create(customer:Object){
-
-    return this.httpClient.post(this.API, customer);
->>>>>>> abdb11cff04e2200dbd2afc85598bfbe39e5e53e
   }
   // getAll /customers
   getAll(): Observable<any> {
-    return this.httpClient.get(this.API + '/customers/');
+    return this.httpClient.get(this.API + '/customers');
   }
   // getCustomerById /customers/{id}
   getById(id: number): Observable<any> {
@@ -44,16 +36,8 @@ export class CustomerService {
   getBills(id: number) {
     return this.httpClient.get(this.API + '/customers/' + id + '/bills');
   }
-<<<<<<< HEAD
   // getAccountByCustomer /customers/{id}/accounts
-  getAccount(id: number) {
-    return this.httpClient.get(this.API + 'customers' + id + '/accounts');
-=======
-
-  //getAccountByCustomer /customers/{id}/accounts
-  getAccountByCustomer(id:number):Observable<any>{
-    return this.httpClient.get(this.API + id + '/accounts')
-
->>>>>>> abdb11cff04e2200dbd2afc85598bfbe39e5e53e
+  getAccountByCustomer(id: number) :Observable<any> {
+    return this.httpClient.get(this.API + '/customers/' + id + '/accounts');
   }
 }

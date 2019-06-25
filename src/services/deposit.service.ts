@@ -8,12 +8,14 @@ import { Deposit } from '../models/Deposit';
 })
 export class DepositService {
 
-  private depositUrl: string;
+  //private depositUrl: string;
   private accountId: string;
   private depositId: string;
 
+  depositUrl ='http://bankingapplicationspringboot-env-1.k2hcfmgmya.us-east-2.elasticbeanstalk.com';
+
   constructor(private http: HttpClient) {
-    this.depositUrl ='http://bankingapplicationspringboot-env-1.k2hcfmgmya.us-east-2.elasticbeanstalk.com';
+    
    }
    public getOne(id: number){
      return this.http.get(this.depositUrl + '/deposits/' + id);

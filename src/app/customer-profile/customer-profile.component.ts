@@ -13,9 +13,10 @@ import { Account } from 'src/models/Account';
 })
 export class CustomerProfileComponent implements OnInit {
 
-  accounts: Account[];
+  accounts: Observable<Account[]>;
   message: Message;
-  customer: Customer = {id: 0, first_name: '', last_name: '', address: [{address_id:0, street_number: '', street_name: '', city: '', state:'', zip:''}]};
+  id: number;
+  customer: Customer = {id: 0, first_name: '', last_name: '', addresses: [{address_id:0, street_number: '', street_name: '', city: '', state:'', zip:''}]};
   constructor(
     private customerService: CustomerService, 
     private router: Router, 
@@ -24,17 +25,15 @@ export class CustomerProfileComponent implements OnInit {
 
   ngOnInit() {
     const customer_id = this.route.snapshot.paramMap.get('customer_id');
-    const id = +customer_id;
-    this.customerService.getById(id).subscribe(data => { 
+    this.id = +customer_id;
+    this.customerService.getById(this.id).subscribe(data => { 
       data = <Message>data;
       this.customer = <Customer>data.data;
-      
       console.log(this.customer);
     });
-    this.customerService.getAccount(id).subscribe(data =>{ 
-      data = <Message>data;
-      this.accounts = <Account[]>data.data;
-      console.log(JSON.stringify(this.accounts));
+    this.customerService.getAccountByCustomer(this.id).subscribe(list =>{ 
+      this.accounts = list.data;
+      console.log(list);
   
     });
   }
