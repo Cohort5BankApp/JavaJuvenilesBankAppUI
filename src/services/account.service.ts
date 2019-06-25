@@ -55,7 +55,7 @@ export class AccountService {
   //update an account method
   
   update(id: number, value: any): Observable<Object> {
-    return this.http.put(this.public_API + `accounts/${id}`, value);
+    return this.http.put(this.public_API + `/accounts/${id}`, value);
   }
 
   //delete an account method

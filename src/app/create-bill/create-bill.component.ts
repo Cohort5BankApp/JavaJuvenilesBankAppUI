@@ -18,6 +18,7 @@ export class CreateBillComponent implements OnInit {
 billLink: any[];
 url: string = window.location.href;
 billId: any;
+billid5: number;
 
 
   type:string[] =['pending','cancelled','completed', 'recurring'];
@@ -39,12 +40,14 @@ return this.billService.create(this.bills, this.bills.account_id ).subscribe(res
 });
 }
 update(){
+  this.bills.id = this.billid5;
   this.billService.update(this.bills.id, this.bills.account_id, this.bills).subscribe(result =>{
     this.gotoAccountDetails();
   })
 }
 delete() {
-return this.billService.delete(this.bills.id).subscribe(result => {
+this.bills.id = this.billid5;
+this.billService.delete(this.bills.id).subscribe(result => {
   this.gotoAccountDetails();
 });
 }
@@ -59,6 +62,7 @@ ngOnInit() {
 this.billLink = this.url.split('/');
 console.log(this.billLink);
 this.billId = this.billLink[3];
+this.billid5 = this.billLink[5];
 this.bills.account_id = this.billId;
 console.log(this.bills)
 
