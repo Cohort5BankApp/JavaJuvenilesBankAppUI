@@ -40,6 +40,8 @@ this.customerService.create(this.customer).subscribe(result => {this.goToCustome
 
   update(){
     this.customer.customer_id = this.id;
+    this.addresses = [this.address];
+    this.customer.addresses =this.addresses;
     this.customerService.update(this.customer.customer_id, this.customer).subscribe();
     this.goToCustomerProfile();
   }
