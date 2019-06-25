@@ -18,23 +18,6 @@ private billUrl: string;
   }
 
   public find(id: number){
-    return this.http.get(this.api + id);
-  }
-
-  // Cant create without an id
-  public create(bill: Bill, account_id: number): Observable<Bill>{
-    return this.http.post<Bill>(this.api + `/accounts/${account_id}/bills/`, bill);
-
-  
-  
-
-
-  constructor(private http: HttpClient) { 
- 
-  } 
-
-
-  public find(id: number){
     return this.http.get(this.api + '/bills' + id);
   }
 
@@ -45,11 +28,11 @@ private billUrl: string;
   }
 
   public delete(id: number): Observable<any>{
-    return this.http.delete<Bill>(this.api + id);
+    return this.http.delete<Bill>(this.api + '/bills/' + id);
   }
 
 
-  public update(id: number, account_id:any){
-    return this.http.put(this.api +'/bills' + id, account_id);
+  public update(id: number, account_id:any,item:any){
+    return this.http.put(this.api +'/accounts/'+ account_id +'/bills/' + id, item);
   }
 }

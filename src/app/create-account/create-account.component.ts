@@ -40,7 +40,7 @@ export class CreateAccountComponent implements OnInit {
 
       this.url= window.location.href;
       this.urlA = this.url.split("/");
-      this.UrlId = this.urlA[3];
+      this.UrlId = +this.urlA[3];
       this.accounts.customer_id = this.UrlId;
     }
 

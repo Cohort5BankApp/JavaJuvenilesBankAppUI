@@ -39,6 +39,7 @@ export class CreateWithdrawalComponent implements OnInit {
   save() {
     this.getOwner();
     this.withdrawalService.save(this.withdrawal, this.withdrawal.account_id).subscribe();
+    this.gotoAccountDetails();
 
   }
 

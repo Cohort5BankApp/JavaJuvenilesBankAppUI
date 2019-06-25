@@ -11,16 +11,16 @@
       </div>
 
         <h3>Status of Bill</h3>
-        <input type="radio" [(ngModel)]="bills.type"  id="type" value="pending" name="type" [ngModelOptions]="{standalone: true}">
+        <input type="radio" [(ngModel)]="bills.status"  id="status" value="pending" name="status" [ngModelOptions]="{standalone: true}">
         <label for="pending">pending</label>
 
-        <input type="radio" [(ngModel)]="bills.status" id="type" value="canceled" name="type" [ngModelOptions]="{standalone: true}">
+        <input type="radio" [(ngModel)]="bills.status" id="status" value="canceled" name="status" [ngModelOptions]="{standalone: true}">
         <label for="savings">canceled</label>
 
-        <input type="radio" [(ngModel)]="bills.status" id="type" value="complete" name="type" [ngModelOptions]="{standalone: true}">
+        <input type="radio" [(ngModel)]="bills.status" id="status" value="complete" name="status" [ngModelOptions]="{standalone: true}">
         <label for="credit">complete</label>
 
-        <input type="radio" [(ngModel)]="bills.status" id="type" value="reccuring" name="type" [ngModelOptions]="{standalone: true}">
+        <input type="radio" [(ngModel)]="bills.status" id="status" value="reccuring" name="status" [ngModelOptions]="{standalone: true}">
         <label for="reccuring">reccuring</label>
       </div> 
 
@@ -53,7 +53,7 @@
 
   <div class="form-group">
     <label for="recurring_date">Recurring Date</label>
-    <input type="text" class="form-control" [(ngModel)]="bills.recurring_date" id="recurring_date" placeholder="Recurring Date" [ngModelOptions]="{standalone: true}">
+    <input type="number" class="form-control" [(ngModel)]="bills.recurring_date" id="recurring_date" placeholder="Recurring Date" [ngModelOptions]="{standalone: true}">
   </div>
 
     <div class="form-group">

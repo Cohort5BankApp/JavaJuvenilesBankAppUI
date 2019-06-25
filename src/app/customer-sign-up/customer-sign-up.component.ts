@@ -23,6 +23,7 @@ export class CustomerSignUpComponent implements OnInit {
 // };
 addresses:Address[];
   customer: Customer = {id: 0, first_name: '', last_name: '', addresses: this.addresses};
+  id : number;
 
 sub: Subscription;
 
@@ -37,7 +38,11 @@ sub: Subscription;
 this.customerService.create(this.customer).subscribe(result => {this.goToCustomerProfile()});
   }
 
-  
+  update(){
+    this.customer.id = this.id;
+    this.customerService.update(this.customer.id, this.customer).subscribe();
+    this.goToCustomerProfile();
+  }
 
   goToCustomerProfile(){
     this.router.navigate(['/customers'])
@@ -45,13 +50,14 @@ this.customerService.create(this.customer).subscribe(result => {this.goToCustome
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params =>{
-      const id = params['id'];
-      if(id){
-        this.customerService.getById(id).subscribe((customer: any)=>{
+       this.id = params['id'];
+       console.log(this.id);
+      if(this.id){
+        this.customerService.getById(this.id).subscribe((customer: any)=>{
          if(customer){
            this.customer= customer;
          } else{
-           console.log(`Customer '${id}' does not exist, returning to home page.`)
+           console.log(`Customer '${this.id}' does not exist, returning to home page.`)
            this.goToCustomerProfile();
          }
         })

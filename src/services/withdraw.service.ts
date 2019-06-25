@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class WithdrawalService {
 
-  private withdrawalUrl: string;
+  // private withdrawalUrl: string;
+  withdrawalUrl = 'http://bankingapplicationspringboot-env-1.k2hcfmgmya.us-east-2.elasticbeanstalk.com/';
 
   constructor(private http: HttpClient) {
-    this.withdrawalUrl = 'http://bankingapplicationspringboot-env-1.k2hcfmgmya.us-east-2.elasticbeanstalk.com/';
   }
 
 //   public findAll(): Observable<Withdrawal[]> {
