@@ -24,7 +24,7 @@ export class WithdrawalService {
   }
 
   public delete(id: number): Observable<any> {
-    return this.http.delete<Withdrawal>(this.withdrawalUrl + id);
+    return this.http.delete<Withdrawal>(this.withdrawalUrl+ 'withdrawals/' + id);
   }
 
   public find(id: number) {

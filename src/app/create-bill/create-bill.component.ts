@@ -33,8 +33,8 @@ billid5: number;
 
  
 
-onSubmit() {
-return this.billService.create(this.bills, this.bills.account_id ).subscribe(result => {
+onSubmit() { 
+ this.billService.create(this.bills, this.bills.account_id).subscribe(result => {
   this.gotoAccountDetails();
   console.log(this.Bill)
 });

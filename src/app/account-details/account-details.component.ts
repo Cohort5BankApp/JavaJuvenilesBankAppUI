@@ -35,6 +35,7 @@ export class AccountDetailsComponent implements OnInit {
     this.account_id = +p[4];
     this.accountService.getBills(this.account_id).subscribe(list => {
       this.bill =list.data;
+      console.log(this.bill);
     });
     this.accountService.getDeposits(this.account_id).subscribe(list => {
       this.deposit = list.data;

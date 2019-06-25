@@ -19,12 +19,14 @@ export class CreateWithdrawalComponent implements OnInit {
   button: boolean;
   withdrawalLink: any[];
   url: string = window.location.href;
-  withdrawalId: any;
+  withdrawalId: number;
+  withdrawalId5:number;
   custId:number;
 
   constructor(private route: ActivatedRoute, private router: Router, private withdrawalService: WithdrawalService, private accountService:AccountService) { }
 
   delete() {
+    this.withdrawal.id = this.withdrawalId5;
     return this.withdrawalService.delete(this.withdrawal.id).subscribe(data => {
       this.gotoAccountDetails();
     });
@@ -44,6 +46,7 @@ export class CreateWithdrawalComponent implements OnInit {
   }
 
   update() {
+    this.withdrawal.id = this.withdrawalId5;
     return this.withdrawalService.update(this.withdrawal.id, this.withdrawal).subscribe(data => {
       this.gotoAccountDetails();
     });
@@ -58,13 +61,11 @@ export class CreateWithdrawalComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.button);
     this.withdrawalLink = this.url.split('/');
-    this.withdrawalId = this.withdrawalLink[3];
-    console.log(this.withdrawalLink)
+    this.withdrawalId = +this.withdrawalLink[3];
     this.withdrawal.account_id = this.withdrawalId;
-    console.log(this.withdrawalLink);
-    console.log(this.withdrawal);
+    this.withdrawalId5 = +this.withdrawalLink[5];
+  
 
     if (this.withdrawalLink[4] === 'create-withdrawal') {
       this.button = false;
