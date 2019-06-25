@@ -19,6 +19,7 @@ export class CreateAccountComponent implements OnInit {
   UrlId;
   url:String;
   accountU:string;
+  url5: number;
 
 
   constructor(private route:ActivatedRoute, private router:Router, private service:AccountService) {
@@ -41,6 +42,7 @@ export class CreateAccountComponent implements OnInit {
       this.url= window.location.href;
       this.urlA = this.url.split("/");
       this.UrlId = +this.urlA[3];
+      this.url5 = +this.urlA[5];
       this.accounts.customer_id = this.UrlId;
     }
 
@@ -61,14 +63,15 @@ export class CreateAccountComponent implements OnInit {
 
   //update the account
   updates(){
-    return this.service.update(this.accounts.account_id,this.accounts).subscribe(result =>{
+    this.accounts.account_id = this.url5
+     this.service.update(this.accounts.account_id,this.accounts).subscribe(result =>{
       this.gotoAccountList();
     }, error => console.error(error));
   }
 
   //delete the account
   delete(){
-    console.log(this.accounts)
+    this.accounts.account_id = this.url5
     this.service.remove(this.accounts.account_id).subscribe(result =>{
       this.gotoAccountList()}, error => console.error(error));
   }

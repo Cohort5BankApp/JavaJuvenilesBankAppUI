@@ -18,11 +18,13 @@ export class CreateDepositComponent implements OnInit {
   depositLink: any[];
   url: string = window.location.href;
   depositId: any;
+  depositId5:number;
 
 
   constructor(private route: ActivatedRoute, private router: Router, private depositService: DepositService) { }
 
   delete() {
+    this.deposit.id = this.depositId5;
     return this.depositService.delete(this.deposit.id).subscribe(data => {
       this.gotoAccountDetails();
     });
@@ -35,6 +37,7 @@ export class CreateDepositComponent implements OnInit {
   }
 
   update() {
+    this.deposit.id = this.depositId5;
     return this.depositService.update(this.deposit.id, this.deposit).subscribe(data => {
       this.gotoAccountDetails();
     });
@@ -51,8 +54,9 @@ export class CreateDepositComponent implements OnInit {
   ngOnInit() {
     console.log(this.button);
     this.depositLink = this.url.split('/');
-    this.depositId = this.depositLink[3];
+    this.depositId = +this.depositLink[3];
     this.deposit.account_id = +this.depositId;
+    this.depositId5 = +this.depositLink[5];
     console.log(this.depositLink);
     console.log(this.deposit);
 

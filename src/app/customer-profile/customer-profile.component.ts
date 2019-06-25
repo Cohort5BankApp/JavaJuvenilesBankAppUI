@@ -16,7 +16,7 @@ export class CustomerProfileComponent implements OnInit {
   accounts: Observable<Account[]>;
   message: Message;
   id: number;
-  customer: Customer = {id: 0, first_name: '', last_name: '', addresses: [{address_id:0, street_number: '', street_name: '', city: '', state:'', zip:''}]};
+  customer: Customer = {customer_id: 0, first_name: '', last_name: '', addresses: [{address_id:0, street_number: '', street_name: '', city: '', state:'', zip:''}]};
   constructor(
     private customerService: CustomerService, 
     private router: Router, 

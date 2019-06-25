@@ -26,7 +26,7 @@
     <td> {{ account.type }}</td>
     
     <td> {{account.rewards }}</td>
-    <td><button [routerLink] = "[account.account_id, '/update-account']">Edit</button></td>
+    <td><button [routerLink] = "['/' +   account.customer_id + '/update-account/' + account.account_id]">Edit</button></td>
 
   </tr>
 </table>
