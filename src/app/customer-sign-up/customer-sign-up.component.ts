@@ -22,7 +22,7 @@ export class CustomerSignUpComponent implements OnInit {
 //     zip: ''
 // };
 addresses:Address[];
-  customer: Customer = {id: 0, first_name: '', last_name: '', addresses: this.addresses};
+  customer: Customer = {customer_id: 0, first_name: '', last_name: '', addresses: this.addresses};
   id : number;
 
 sub: Subscription;
@@ -39,8 +39,8 @@ this.customerService.create(this.customer).subscribe(result => {this.goToCustome
   }
 
   update(){
-    this.customer.id = this.id;
-    this.customerService.update(this.customer.id, this.customer).subscribe();
+    this.customer.customer_id = this.id;
+    this.customerService.update(this.customer.customer_id, this.customer).subscribe();
     this.goToCustomerProfile();
   }
 
